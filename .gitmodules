@@ -1,0 +1,3 @@
+[submodule "i2p.i2p/GenesisAppI2P"]
+	path = i2p.i2p/GenesisAppI2P
+	url = ../GenesisApp.git
