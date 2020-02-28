@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:i2pandroid="http://schemas.android.com/apk/res-auto" >
+    <!-- Search, should appear as action buttons -->
+    <item android:id="@+id/action_search_addressbook"
+          android:title="@string/action_search"
+          android:icon="@drawable/ic_search_white_24dp"
+          i2pandroid:showAsAction="ifRoom|collapseActionView"
+          i2pandroid:actionViewClass="androidx.appcompat.widget.SearchView" />
+</menu>

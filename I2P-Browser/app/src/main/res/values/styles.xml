@@ -1,0 +1,297 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="colorPrimary">@color/dark_purple</item>
+        <item name="colorPrimaryDark">@color/dark_purple</item>
+        <item name="colorAccent">@color/dark_purple</item>
+        <item name="android:windowBackground">@xml/splash_gradient</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:popupAnimationStyle">@null</item>
+    </style>
+
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="noAnimTheme" parent="android:Theme">
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:popupAnimationStyle">@null</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:popupAnimationStyle">@null</item>
+        <item name="android:textColorSecondary">#ffffff</item>
+        <item name="colorControlNormal">#ffffff</item>
+        <item name="android:textColorHint">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:textColorSecondary">#ffffff</item>
+        <item name="android:popupAnimationStyle">@null</item>
+        <item name="colorControlNormal">#ffffff</item>
+    </style>
+
+    <style name="PreferenceScreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="ThemeOverlay.AppCompat.ActionBar_tuned" parent="Base.ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="colorControlNormal">#000000</item>
+    </style>
+
+    <style name="ThemeOverlay.AppCompat.ActionBar_tuned_white" parent="Base.ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="android:editTextColor">@android:color/white</item>
+        <item name="colorControlNormal">#ffffff</item>
+    </style>
+
+    <style name="Theme.Transparent" parent="android:Theme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="AppTheme.popupMenuStyle" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:popupBackground" >@android:color/white</item>
+        <item name="android:layout_marginTop" >1000dp</item>
+        <item name="android:popupAnimationStyle">@null</item>
+    </style>
+
+    <style name="popup_window_animation">
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:windowEnterAnimation">@anim/popup_anim_in</item>
+        <item name="android:windowExitAnimation">@anim/popup_anim_out</item>
+    </style>
+
+    <style name="Base" />
+
+    <style name="Base.Theme.I2P" parent="Theme.AppCompat.NoActionBar">
+        <!-- Here we setting appcompat’s actionBarStyle -->
+        <!--<item name="actionBarStyle">@style/MyActionBarStyle</item>-->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <!-- colorPrimary is used for the default action bar background -->
+        <item name="colorPrimary">@color/primary</item>
+
+        <!-- colorPrimaryDark is used for the status bar -->
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+
+        <!-- colorAccent is used as the default value for colorControlActivated
+         which is used to tint widgets -->
+        <item name="colorAccent">@color/accent</item>
+
+        <!-- You can also set colorControlNormal, colorControlActivated
+             colorControlHighlight & colorSwitchThumbNormal. -->
+
+        <!-- The rest of your attributes -->
+    </style>
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="titleTextStyle">@style/MyTitleTextStyle</item>
+    </style>
+
+    <style name="MyTitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Theme.I2P" parent="Base.Theme.I2P">
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.Primary" parent="TextAppearance.AppCompat.Body1">
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:textColor">@color/primary_text_default_material_dark</item>
+        <item name="android:textSize">@dimen/text_size_primary</item>
+    </style>
+
+    <style name="TextAppearance.AppCompat.Secondary" parent="TextAppearance.AppCompat.Body1">
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:textColor">@color/secondary_text_default_material_dark</item>
+        <item name="android:textSize">@dimen/text_size_secondary</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:background">?android:attr/listDivider</item>
+    </style>
+
+    <style name="Divider.Horizontal" parent="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dip</item>
+    </style>
+
+    <style name="Divider.Vertical" parent="Divider">
+        <item name="android:layout_width">1dip</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <!-- Console menu -->
+    <style name="Base.ConsoleMenu">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fab_addButtonColorNormal">@color/accent</item>
+        <item name="fab_addButtonColorPressed">@color/accent_dark</item>
+    </style>
+
+    <style name="ConsoleMenu" parent="Base.ConsoleMenu">
+        <item name="fab_labelStyle">@style/menu_labels_style</item>
+    </style>
+
+    <style name="ConsoleMenu.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fab_colorNormal">@color/accent</item>
+        <item name="fab_colorPressed">@color/accent_dark</item>
+    </style>
+
+    <style name="ConsoleMenu.Button.Mini" parent="ConsoleMenu.Button">
+        <item name="fab_size">mini</item>
+    </style>
+
+    <style name="menu_labels_style">
+        <item name="android:background">@drawable/fab_label_background</item>
+        <item name="android:textColor">@color/menu_label_text</item>
+    </style>
+
+    <!-- Pager indicators -->
+    <style name="Base.PagerIndicator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/pager_indicator_text_size</item>
+    </style>
+
+    <style name="PagerIndicator" parent="Base.PagerIndicator">
+        <item name="android:textColor">@color/pager_indicator_text_color</item>
+        <item name="footerColor">@color/pager_indicator_footer_color</item>
+        <item name="selectedBold">false</item>
+        <item name="selectedColor">@color/pager_indicator_selected_color</item>
+    </style>
+
+    <style name="PagerIndicator.FixedTextView" parent="Base.PagerIndicator">
+        <item name="android:layout_marginBottom">@dimen/pager_indicator_footer_padding</item>
+        <item name="android:layout_marginTop">@dimen/pager_indicator_top_padding</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/pager_indicator_selected_color</item>
+    </style>
+
+    <style name="PagerIndicator.FixedFooter" parent="Base.PagerIndicator">
+        <item name="android:layout_height">@dimen/pager_indicator_footer_line_height</item>
+        <item name="android:background">@color/pager_indicator_footer_color</item>
+    </style>
+
+    <!-- List items -->
+    <style name="Base.ListItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingRight">@dimen/listitem_horizontal_margin</item>
+    </style>
+
+    <style name="ListItem" parent="Base.ListItem" />
+
+    <style name="ListItem.OneLine">
+        <item name="android:layout_height">@dimen/listitem_height_one_line</item>
+    </style>
+
+    <style name="ListItem.TwoLines">
+        <item name="android:layout_height">@dimen/listitem_height_two_lines</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- For listitems that are just TextViews -->
+    <style name="Base.ListItem.TextOnly" parent="ListItem.OneLine">
+        <item name="android:layout_marginLeft">@dimen/listitem_text_left_margin</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Primary</item>
+    </style>
+
+    <style name="ListItem.TextOnly" parent="Base.ListItem.TextOnly" />
+
+    <style name="ListItemContent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Base.ListItemContent.Text" parent="ListItemContent">
+        <item name="android:layout_marginLeft">@dimen/listitem_text_left_margin</item>
+    </style>
+
+    <style name="ListItemContent.Text" parent="Base.ListItemContent.Text" />
+
+    <style name="ListItemContent.Text.Main">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Primary</item>
+    </style>
+
+    <style name="ListItemContent.Text.Main.TwoLines">
+        <item name="android:layout_marginTop">@dimen/listitem_text_top_margin_two_lines</item>
+    </style>
+
+    <style name="ListItemContent.Text.Second">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Secondary</item>
+    </style>
+
+    <style name="ListItemContent.Text.Second.TwoLines">
+        <item name="android:layout_marginBottom">@dimen/listitem_text_bottom_margin_two_lines</item>
+    </style>
+
+    <style name="Base.ListItemContent.Action" parent="ListItemContent">
+        <item name="android:layout_width">@dimen/listitem_icon_size</item>
+        <item name="android:layout_height">@dimen/listitem_icon_size</item>
+        <item name="android:layout_marginLeft">@dimen/listitem_horizontal_margin</item>
+    </style>
+
+    <style name="ListItemContent.Action" parent="Base.ListItemContent.Action" />
+
+    <!-- Wizard styling -->
+    <style name="WizardPageContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="WizardPageTitleBase">
+        <item name="android:id">@android:id/title</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">#ff0099cc</item>
+    </style>
+
+    <style name="WizardPageTitle" parent="WizardPageTitleBase" />
+
+    <style name="WizardFormLabel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+    </style>
+</resources>

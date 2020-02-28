@@ -1,0 +1,40 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="net.i2p.android.lib.helper.test" >
+4
+5    <uses-sdk
+5-->/home/morgan/Workspace/i2p-Browser/I2PBrowser/i2p-Browser/i2p.android.base-master/lib/helper/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8872224215316708155.xml:5:5-74
+6        android:minSdkVersion="14"
+6-->/home/morgan/Workspace/i2p-Browser/I2PBrowser/i2p-Browser/i2p.android.base-master/lib/helper/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8872224215316708155.xml:5:15-41
+7        android:targetSdkVersion="14" />
+7-->/home/morgan/Workspace/i2p-Browser/I2PBrowser/i2p-Browser/i2p.android.base-master/lib/helper/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8872224215316708155.xml:5:42-71
+8
+9    <instrumentation
+9-->/home/morgan/Workspace/i2p-Browser/I2PBrowser/i2p-Browser/i2p.android.base-master/lib/helper/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8872224215316708155.xml:11:5-15:81
+10        android:name="com.android.test.runner.MultiDexTestRunner"
+10-->/home/morgan/Workspace/i2p-Browser/I2PBrowser/i2p-Browser/i2p.android.base-master/lib/helper/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8872224215316708155.xml:11:22-79
+11        android:functionalTest="false"
+11-->/home/morgan/Workspace/i2p-Browser/I2PBrowser/i2p-Browser/i2p.android.base-master/lib/helper/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8872224215316708155.xml:14:22-52
+12        android:handleProfiling="false"
+12-->/home/morgan/Workspace/i2p-Browser/I2PBrowser/i2p-Browser/i2p.android.base-master/lib/helper/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8872224215316708155.xml:13:22-53
+13        android:label="Tests for net.i2p.android.lib.helper.test"
+13-->/home/morgan/Workspace/i2p-Browser/I2PBrowser/i2p-Browser/i2p.android.base-master/lib/helper/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8872224215316708155.xml:15:22-79
+14        android:targetPackage="net.i2p.android.lib.helper.test" />
+14-->/home/morgan/Workspace/i2p-Browser/I2PBrowser/i2p-Browser/i2p.android.base-master/lib/helper/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8872224215316708155.xml:12:22-77
+15
+16    <application
+16-->/home/morgan/Workspace/i2p-Browser/I2PBrowser/i2p-Browser/i2p.android.base-master/lib/helper/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8872224215316708155.xml:7:5-9:19
+17        android:allowBackup="true"
+17-->[__tested_artifact__::lib:helper] /home/morgan/Workspace/i2p-Browser/I2PBrowser/i2p-Browser/i2p.android.base-master/lib/helper/build/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-35
+18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+18-->[androidx.core:core:1.0.0] /home/morgan/.gradle/caches/transforms-2/files-2.1/8b8f91505faed6de2c9ca7a494ddd5e3/core-1.0.0/AndroidManifest.xml:22:18-86
+19        android:debuggable="true"
+19-->/home/morgan/Workspace/i2p-Browser/I2PBrowser/i2p-Browser/i2p.android.base-master/lib/helper/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8872224215316708155.xml:7:18-43
+20        android:label="@string/app_name" >
+20-->[__tested_artifact__::lib:helper] /home/morgan/Workspace/i2p-Browser/I2PBrowser/i2p-Browser/i2p.android.base-master/lib/helper/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:9-41
+21        <uses-library android:name="android.test.runner" />
+21-->/home/morgan/Workspace/i2p-Browser/I2PBrowser/i2p-Browser/i2p.android.base-master/lib/helper/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8872224215316708155.xml:8:9-60
+21-->/home/morgan/Workspace/i2p-Browser/I2PBrowser/i2p-Browser/i2p.android.base-master/lib/helper/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8872224215316708155.xml:8:23-57
+22    </application>
+23
+24</manifest>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="routerjars">
+    <property file="local.properties" />
+    <property name="jar.libs.dir" value="libs" />
+
+    <!-- override with i2psrc=path/to/source in local.properties -->
+    <property name="i2psrc" value="../../i2p.i2p" />
+    <property name="i2pbase" location="${i2psrc}" />
+    <available file="${i2pbase}" property="i2p.present" />
+    <fail message="I2P source directory ${i2pbase} was not found. Install it there or set i2psrc=/path/to/source in local.properties" >
+        <condition>
+            <not>
+                <isset property="i2p.present" />
+            </not>
+        </condition>
+    </fail>
+    <echo message="Using I2P source at ${i2pbase}" />
+    <property name="i2plib" location="${i2pbase}/build" />
+
+    <available property="have.bob" file="${i2plib}/BOB.jar" />
+    <available property="have.newsxml" file="${i2pbase}/apps/routerconsole/java/build/newsxml.jar" />
+    <available property="have.i2ptunnel" file="${i2plib}/i2ptunnel-ui.jar" />
+    <available property="have.addressbook" file="${i2plib}/addressbook.jar" />
+
+    <target name="buildNewsXMLJar" unless="have.newsxml">
+        <ant dir="${i2pbase}" inheritall="false" useNativeBasedir="true" target="buildNewsXMLJar" />
+    </target>
+    <target name="buildI2PTunnelJar" unless="have.i2ptunnel">
+        <ant dir="${i2pbase}" inheritall="false" useNativeBasedir="true" target="buildI2PTunnelJars" />
+    </target>
+    <target name="buildAddressbook" unless="have.addressbook">
+        <ant dir="${i2pbase}" inheritall="false" useNativeBasedir="true" target="buildAddressbookJar" />
+    </target>
+
+    <target name="buildBOB" unless="have.bob">
+        <ant dir="${i2pbase}" inheritall="false" useNativeBasedir="true" target="buildBOB" />
+    </target>
+
+    <target name="buildrouter" depends="buildNewsXMLJar, buildI2PTunnelJar, buildAddressbook">
+        <mkdir dir="${jar.libs.dir}" />
+
+        <!-- newsxml -->
+        <copy file="${i2pbase}/apps/routerconsole/java/build/newsxml.jar" todir="${jar.libs.dir}" />
+
+        <!-- i2ptunnel -->
+        <copy file="${i2plib}/i2ptunnel.jar" todir="${jar.libs.dir}" />
+        <copy file="${i2plib}/i2ptunnel-ui.jar" todir="${jar.libs.dir}" />
+
+        <!-- addressbook -->
+        <copy file="${i2plib}/addressbook.jar" todir="${jar.libs.dir}" />
+
+        <!-- bob -->
+       <!--
+        <copy file="${i2plib}/BOB.jar" todir="${jar.libs.dir}" />
+        -->
+
+    </target>
+
+    <target name="clean">
+        <ant dir="${i2pbase}" target="distclean" />
+        <delete dir="${jar.libs.dir}" />
+    </target>
+
+</project>

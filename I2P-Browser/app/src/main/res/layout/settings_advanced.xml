@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="i2pandroid.main.showStats"
+        android:summary="@string/settings_summ_showStats"
+        android:title="@string/settings_label_showStats" />
+
+    <Preference
+        android:key="preference_category_transports"
+        android:title="@string/settings_label_transports" />
+
+    <!--
+    i2cp.disableInterface=true
+    -->
+    <!-- Was hidden because we have the client library now.
+         Un-hidden in 0.9.40 because domain sockets don't work for third-party apps.
+        -->
+    <CheckBoxPreference
+        android:key="@string/PROP_DISABLE_EXTERNAL"
+        android:defaultValue="false"
+        android:title="@string/settings_label_i2cp"
+        android:summary="@string/settings_desc_i2cp"
+        />
+
+    <Preference
+        android:key="preference_category_expl_tunnels"
+        android:summary="@string/settings_desc_exploratory_pool"
+        android:title="@string/settings_label_exploratory_pool" />
+
+
+    <!--
+
+    i2p.dir.pid=/data/data/net.i2p.android.router/files/tmp
+    <EditTextPreference
+        android:key=""
+        android:defaultValue=""
+        android:title=""
+        />
+
+    i2p.dir.temp=/data/data/net.i2p.android.router/files/tmp
+    <EditTextPreference
+        android:key=""
+        android:defaultValue=""
+        android:title=""
+        />
+
+
+    Futute super advanced options:
+    prng.bufferSize=32768
+    prng.buffers=2
+    router.decayingBloomFilterM=20
+    routerconsole.geoip.enable=false
+    time.disabled=false
+
+
+    No edit allowed for:
+    router.newsLastChecked
+    i2p.naming.impl
+    router.firstInstalled
+    router.firstVersion
+    router.previousVersion
+    router.updateLastInstalled
+    stat.full
+    -->
+
+</PreferenceScreen>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:androidplot="http://schemas.android.com/apk/lib/com.example.applicationname"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.androidplot.xy.XYPlot
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="11dp"
+        android:id="@+id/rate_stat_plot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
+
+
+
+<!--
+        androidplot:androidPlot.graphWidget.domainLabelPaint.textSize="@dimen/graph_domain_tick_label_font_size"
+        androidplot:androidPlot.graphWidget.domainOriginLabelPaint.textSize="@dimen/graph_domain_tick_label_font_size"
+        androidplot:androidPlot.graphWidget.marginBottom="20dp"
+        androidplot:androidPlot.graphWidget.marginLeft="20dp"
+        androidplot:androidPlot.graphWidget.marginRight="10dp"
+        androidplot:androidPlot.graphWidget.marginTop="11dp"
+        androidplot:androidPlot.graphWidget.rangeLabelPaint.textSize="@dimen/graph_range_tick_label_font_size"
+        androidplot:androidPlot.graphWidget.rangeOriginLabelPaint.textSize="@dimen/graph_range_tick_label_font_size"
+-->

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="min_lines">10</integer>
+    <integer name="progress_shift_duration">500</integer>
+</resources>
+

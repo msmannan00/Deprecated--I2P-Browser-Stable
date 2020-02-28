@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:paddingRight="0dp"
+              android:paddingLeft="0dp"
+              android:paddingBottom="0dp"
+              android:elevation="0dp"
+              android:orientation="vertical">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:orientation="vertical"
+            android:onClick="onSuggestionInvoked"
+            android:background="@xml/side_item_suggestions">
+
+        <TextView
+                android:id="@+id/hintCompletionTitle"
+                android:layout_marginRight="20dp"
+                android:clickable="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="@color/black"
+                android:singleLine="true"
+                android:textSize="14sp"
+                android:ellipsize="end"
+                android:text="BBC | Israel Strikes Again" />
+
+        <TextView
+                android:id="@+id/hintCompletionUrl"
+                android:layout_marginRight="20dp"
+                android:clickable="false"
+                android:layout_width="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="@color/holo_dark_gray"
+                android:textSize="12.5sp"
+                android:text="BBC | Israel Strikes Again" />
+
+        <!--<Button
+                    android:id="@+id/hintCompletionHeader"
+                    android:background="@color/clear_alpha"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="true"
+                    android:textAllCaps="false"
+                    android:textAlignment="viewStart"
+                    android:textStyle="normal"
+                    android:textColor="@color/text_color_v1"
+                    android:textSize="15.5sp"/>-->
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</LinearLayout>

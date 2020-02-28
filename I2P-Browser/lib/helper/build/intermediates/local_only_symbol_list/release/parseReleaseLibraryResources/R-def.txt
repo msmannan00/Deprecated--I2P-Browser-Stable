@@ -1,0 +1,10 @@
+R_DEF: Internal format may change without notice
+local
+string app_name
+string install_i2p_android
+string market_i2p_android
+string no
+string start_i2p_android
+string would_you_like_to_start_i2p_android
+string yes
+string you_must_have_i2p_android

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.example.myapplication">
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.READ_CLIPBOARD" />
+
+    <application
+            android:allowBackup="true"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:fullBackupContent="false"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:networkSecurityConfig="@xml/ex_network_security_config"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true">
+        <!-- Activities -->
+        <activity
+                android:name="com.darkweb.appManager.settingManager.settingController"
+                android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+                android:label="@string/title_activity_setting_controller"
+                android:windowSoftInputMode="adjustNothing" />
+
+        <activity
+            android:name="com.darkweb.appManager.languageManager.languageController"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_setting_controller"
+            android:windowSoftInputMode="adjustNothing" />
+
+        <activity
+                android:name="com.darkweb.appManager.historyManager.historyController"
+                android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+                android:windowSoftInputMode="adjustNothing" />
+        <activity
+                android:name="com.darkweb.appManager.bookmarkManager.bookmarkController"
+                android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+                android:windowSoftInputMode="adjustNothing" />
+        <activity
+                android:name="com.darkweb.appManager.tabManager.tabController"
+                android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+                android:launchMode="singleTask"
+                android:windowSoftInputMode="adjustNothing" />
+        <activity
+                android:name="com.darkweb.appManager.homeManager.homeController"
+                android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait"
+                android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="bridge" />
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="org.torproject.android.REQUEST_HS_PORT" />
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="org.torproject.android.START_TOR" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:mimeType="text/html" />
+                <data android:mimeType="text/plain" />
+                <data android:mimeType="application/xhtml+xml" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                        android:host="content"
+                        android:scheme="rocket" />
+            </intent-filter>
+        </activity> <!-- Services & Settings -->
+        <uses-library
+                android:name="org.apache.http.legacy"
+                android:required="false" />
+
+        <meta-data
+                android:name="io.fabric.ApiKey"
+                android:value="be76c64dae2519d4ab8daaed88298da14c7c294f" />
+        <meta-data
+                android:name="com.google.android.gms.ads.APPLICATION_ID"
+                android:value="ca-app-pub-5074525529134731~2926711128" />
+
+        <service
+                android:name="com.darkweb.helperManager.downloadFileService"
+                android:enabled="true"
+                android:exported="false"
+                android:stopWithTask="true" />
+        <service
+            android:name="net.i2p.android.router.service.RouterService"
+            android:icon="@drawable/ic_launcher_itoopie"
+            android:stopWithTask="true"
+            android:label="@string/app_name"
+            android:permission="TODO">
+            <intent-filter>
+                <action android:name="net.i2p.android.router.service.IRouterState" />
+            </intent-filter>
+        </service>
+        <provider
+            android:name="net.i2p.android.router.provider.CacheProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false" />
+        <receiver android:name="net.i2p.android.router.receiver.OnBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="net.i2p.android.I2PActivity"
+            android:icon="@drawable/ic_launcher_itoopie"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop">
+            <!-- Console filters -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="net.i2p.android.router.START_I2P" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- Addressbook filters -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PICK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable_addressbook" />
+        </activity>
+        <activity
+            android:theme="@style/PreferenceScreen"
+            android:name="net.i2p.android.router.NewsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/label_news"
+            android:parentActivityName="net.i2p.android.I2PActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.i2p.android.I2PActivity" />
+        </activity>
+        <activity
+            android:theme="@style/PreferenceScreen"
+            android:name="net.i2p.android.help.HelpActivity"
+            android:label="@string/menu_help"
+            android:parentActivityName="net.i2p.android.I2PActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.i2p.android.I2PActivity" />
+        </activity>
+        <activity
+            android:theme="@style/PreferenceScreen"
+            android:name="net.i2p.android.help.BrowserConfigActivity"
+            android:label="@string/label_browser_configuration"
+            android:parentActivityName="net.i2p.android.I2PActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.i2p.android.I2PActivity" />
+        </activity>
+        <activity
+            android:name="net.i2p.android.router.LicenseActivity"
+            android:label="@string/label_licenses"
+            android:theme="@style/PreferenceScreen"
+            android:parentActivityName="net.i2p.android.help.HelpActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.i2p.android.help.HelpActivity" />
+        </activity>
+        <activity
+            android:name="net.i2p.android.router.web.WebActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="I2P Web Browser">
+            <!-- Disabled, this browser is not very secure
+            Temporarily enabled until an alternative browser is ready -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="*.i2p"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="net.i2p.android.router.SettingsActivity"
+            android:theme="@style/PreferenceScreen"
+            android:label="@string/menu_settings"
+            android:parentActivityName="net.i2p.android.I2PActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.i2p.android.I2PActivity" />
+        </activity>
+        <activity
+            android:theme="@style/PreferenceScreen"
+            android:name="net.i2p.android.router.addressbook.AddressbookSettingsActivity"
+            android:label="@string/label_addressbook"
+            android:launchMode="singleTop"
+            android:parentActivityName="net.i2p.android.I2PActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.i2p.android.I2PActivity" />
+        </activity>
+        <activity
+            android:name="net.i2p.android.router.addressbook.AddressbookAddWizardActivity"
+            android:parentActivityName="net.i2p.android.I2PActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.i2p.android.I2PActivity" />
+        </activity>
+        <activity
+            android:name="net.i2p.android.i2ptunnel.TunnelDetailActivity"
+            android:parentActivityName="net.i2p.android.I2PActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.i2p.android.I2PActivity" />
+        </activity>
+        <activity
+            android:name="net.i2p.android.i2ptunnel.preferences.EditTunnelActivity"
+            android:label="@string/edit_tunnel"
+            android:parentActivityName="net.i2p.android.i2ptunnel.TunnelDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.i2p.android.i2ptunnel.TunnelDetailActivity" />
+        </activity>
+        <activity
+            android:name="net.i2p.android.i2ptunnel.TunnelWizardActivity"
+            android:parentActivityName="net.i2p.android.I2PActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.i2p.android.I2PActivity" />
+        </activity>
+        <activity
+            android:theme="@style/PreferenceScreen"
+            android:name="net.i2p.android.router.log.LogActivity"
+            android:label="@string/label_logs"
+            android:parentActivityName="net.i2p.android.I2PActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.i2p.android.I2PActivity" />
+        </activity>
+        <activity
+            android:name="net.i2p.android.router.log.LogDetailActivity"
+            android:label="@string/log_entry"
+            android:parentActivityName="net.i2p.android.router.log.LogActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.i2p.android.router.log.LogActivity" />
+        </activity>
+        <activity
+            android:name="net.i2p.android.router.stats.RateGraphActivity"
+            android:label="@string/label_graphs"
+            android:parentActivityName="net.i2p.android.I2PActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.i2p.android.I2PActivity" />
+        </activity>
+        <activity
+            android:name="net.i2p.android.router.stats.PeersActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/label_peers_status"
+            android:launchMode="singleTop"
+            android:parentActivityName="net.i2p.android.I2PActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.i2p.android.I2PActivity" />
+        </activity>
+        <activity
+            android:name="net.i2p.android.router.netdb.NetDbActivity"
+            android:label="NetDB"
+            android:parentActivityName="net.i2p.android.I2PActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.i2p.android.I2PActivity" />
+        </activity>
+        <activity
+            android:name="net.i2p.android.router.netdb.NetDbDetailActivity"
+            android:label="NetDB Detail"
+            android:parentActivityName="net.i2p.android.router.netdb.NetDbActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.i2p.android.router.netdb.NetDbActivity" />
+        </activity>
+    </application>
+
+</manifest>

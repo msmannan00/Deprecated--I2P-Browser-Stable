@@ -1,0 +1,619 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Application Strings -->
+    <string name="app_name" translatable="false">I2P Browser</string>
+    <string name="SearchHint" >Search History</string>
+    <string name="SearchHintMain" >Search or type web address</string>
+    <string name="homeUrl" >https://genesis.onion</string>
+    <string name="errorTiyle" >\u0020\u0020\u0020Opps! Some Thing Went Wrong</string>
+    <string name="todo" >TODO</string>
+    <string name="projectName" >I2P Browser</string>
+    <string name="loadingText" >Online Freedom</string>
+    <string name="reload" >Reload</string>
+    <string name="internetErrorMessage" >These might be the problems you are facing \n\n• Webpage or Website might be down \n• Your Internet connection might be poor \n• You might be using a proxy \n• Website might be blocked by firewall</string>
+    <string name="title_activity_list_manager" >list_manager</string>
+    <string name="title_activity_setting_controller" >Settings</string>
+    <string name="file_provider_authority" >com.darkweb.i2psearchengine.fileprovider</string>
+    <string name="loading_text" >Starting | Genesis Search</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header" >Messages</string>
+    <string name="sync_header" >Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title" >Your signature</string>
+    <string name="reply_title" >Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title" >Sync email periodically</string>
+    <string name="attachment_title" >Download incoming attachments</string>
+    <string name="attachment_summary_on" >Automatically download attachments for incoming emails</string>
+    <string name="attachment_summary_off" >Only download attachments when manually requested</string>
+
+    <!-- Popup Menu -->
+    <string name="popup_new_tabs">New Tabs</string>
+    <string name="popup_close_tabs">Close Tab</string>
+    <string name="popup_open_Recent_tab">Open Recent Tabs</string>
+    <string name="popup_languages">Language</string>
+    <string name="popup_download">Downloads</string>
+    <string name="popup_history">History</string>
+    <string name="popup_settings">Settings</string>
+    <string name="popup_desktop">Desktop Site</string>
+    <string name="popup_bookmark_page">Bookmark This Page</string>
+    <string name="popup_open_bookmark">Open Bookmarks</string>
+    <string name="popup_report">Report Website</string>
+    <string name="popup_rate">Rate This App</string>
+    <string name="popup_share">Share</string>
+    <string name="popup_open_url">Open URL List</string>
+    <string name="popup_configure">Configure Proxy</string>
+
+    <!-- Settings -->
+    <string name="settings_basic_settings" >Basic Settings</string>
+    <string name="settings_header" >Settings</string>
+    <string name="settings_search_engine" >Search Engine</string>
+    <string name="settings_javascript" >Javascript</string>
+    <string name="settings_clear_history" >Auto Clear History</string>
+    <string name="settings_font_title" >Font Settings</string>
+    <string name="settings_adjust_font" >Customized Font</string>
+    <string name="settings_font_size" >Font Size</string>
+    <string name="settings_manual_font" >Auto Adjust</string>
+    <string name="settings_cookies" >Cookie Settings</string>
+    <string name="settings_cookie" >Cookies</string>
+    <string name="settings_notification" >Manage Notification</string>
+
+    <!-- History View -->
+    <string name="history_clear_history" >Clear History</string>
+
+    <!-- Tab View -->
+    <string name="tab_search_hint" >Search Tabs</string>
+
+    <!-- List View -->
+    <string name="listview_clear" >Clear</string>
+
+    <!-- Orbot View -->
+    <string name="orbot_header" >Proxy Settings</string>
+    <string name="orbot_desc" >Genesis Browser connects you to the Tor Network run by thousands of volunteers around the world! Can these options help you</string>
+    <string name="orbot_option_title" >Internet is censored here</string>
+    <string name="orbot_option_desc" >Bypass Firewall</string>
+    <string name="warning_slow_speed" >Bridges causes internet to run very slow. Use them only if internet is censored in your country or Tor network is blocked</string>
+
+    <string name="orbot_option_title_reset" >Stuck in loading</string>
+    <string name="orbot_option_desc_reset" >Reset Proxy</string>
+
+    <!-- Bookmark -->
+    <string name="bookmark_clear_history">Clear History</string>
+    <string name="tab_view_clear_bookmark">Clear Bookmark</string>
+
+    <!-- Tab View -->
+    <string name="tab_view_increment">+1</string>
+    <string name="tab_view_search_tab">Search Tabs</string>
+    <string name="tab_view_clear_tab">Clear Tab</string>
+
+    <!-- Language Manager Manager -->
+
+    <string name="LANGUAGE_HEADER" >Language</string>
+    <string name="LANGUAGE_MESSAGE_TITLE" translatable="false">Change Language</string>
+    <string name="LANGUAGE_MESSAGE_DESC" translatable="false">We currently support the following langugage would be adding more soon\n</string>
+    <string name="WELCOME_MESSAGE_BT_DEFAULT" translatable="false">English (United States)</string>
+    <string name="WELCOME_MESSAGE_BT_1" translatable="false">German (Germany)</string>
+    <string name="WELCOME_MESSAGE_BT_2" translatable="false">Italian (Italy)</string>
+    <string name="WELCOME_MESSAGE_BT_3" translatable="false">Portuguese (Brazil)</string>
+    <string name="WELCOME_MESSAGE_BT_4" translatable="false">Russian (Russia)</string>
+    <string name="WELCOME_MESSAGE_BT_5" translatable="false">Ukrainian (Ukraine)</string>
+    <string name="WELCOME_MESSAGE_BT_6" translatable="false">Chinese Simplified (Mainland China)</string>
+
+    <!-- Message Manager -->
+
+    <string name="ABI_ERROR_TITLE">Invalid Setup File</string>
+    <string name="ABI_ERROR_DESC">Looks like you messed up the installation. Either Install it from playstore or follow the link</string>
+    <string name="ABI_ERROR_BT_1">Local Upgrade</string>
+    <string name="ABI_ERROR_BT_2">Playstore Upgrade</string>
+    <string name="ABI_ERROR_BT_3">Continue Anyway</string>
+    <string name="REPORT_URL_TITLE">Report This Website</string>
+    <string name="REPORT_URL_DESC">If you think url is illegal or disturbing report us so that we can update our database\n</string>
+    <string name="REPORT_URL_BT_1">Report</string>
+    <string name="REPORT_URL_BT_2">Dismiss</string>
+    <string name="ORBOT_INIT_TITLE">Initializing</string>
+    <string name="ORBOT_INIT_DESC">Please wait! While we connect you to hidden web. This might take few minutes\n</string>
+    <string name="ORBOT_INIT_BT_1">Dismiss</string>
+    <string name="ORBOT_INIT_BT_2">Try Again</string>
+    <string name="ORBOT_CLEAR_TITLE">Data Cleared</string>
+    <string name="ORBOT_CLEAR_DESC">Genesis data has been cleared. Please try to start application from Homepage\n</string>
+    <string name="ORBOT_CLEAR_BT_1">Dismiss</string>
+    <string name="VERSION_TITLE">Update Pending</string>
+    <string name="VERSION_DESC">You have not updated this app for a while please update it to get best performance\n</string>
+    <string name="VERSION_BT_1">Update</string>
+    <string name="REPORT_SUCCESS_TITLE">URL Reported Successfully</string>
+    <string name="REPORT_SUCCESS_DESC">URL has been successfully reported. It will take about a week to completely remove this website from our servers\n</string>
+    <string name="REPORT_SUCCESS_BT_1">Dismiss</string>
+    <string name="NOT_SUPPORTED_TITLE">Action not Supported</string>
+    <string name="NOT_SUPPORTED_MESSAGE">No application found to handle email</string>
+    <string name="NOT_SUPPORTED_BT_1">Dismiss</string>
+    <string name="RATE_TITLE">Rate US</string>
+    <string name="RATE_MESSAGE">We don\'t take donations or earn money from this app. We are trying to make a private anonymous internet \n\nIf you think this app works please rate us it gives us hope and strength to continue</string>
+    <string name="RATE_POSITIVE">Like This App</string>
+    <string name="RATE_NEGATIVE">Don\'t Like This App</string>
+    <string name="RATE_SUCCESS_TITLE">Sorry To Hear That!</string>
+    <string name="RATE_SUCCESS_DESC">If you are having any trouble and want to contact us please email us at gamesolstudios@gmail.com We will try to solve your problem as soon as possible</string>
+    <string name="RATE_SUCCESS_BT_1">Send Mail</string>
+    <string name="BOOKMARK_URL_BT_1">Bookmark</string>
+    <string name="BOOKMARK_URL_BT_2">Dismiss</string>
+    <string name="CLEAR_HISTORY_TITLE">Clear site storage?</string>
+    <string name="CLEAR_HISTORY_DESC">This will clear data for all sites</string>
+    <string name="CLEAR_HISTORY_BT_1">Clear</string>
+    <string name="CLEAR_HISTORY_BT_2">Dismiss</string>
+    <string name="CLEAR_TAB_TITLE">Clear open tabs?</string>
+    <string name="CLEAR_TAB_DESC">This will clear all stored tabs</string>
+    <string name="CLEAR_TAB_BT_1">Clear</string>
+    <string name="clear_bookmark_title">Clear site bookmark?</string>
+    <string name="clear_bookmark_desc">This will clear data for all saved sites\n</string>
+    <string name="clear_bookmark_bt1">Clear</string>
+    <string name="clear_bookmark_bt2">Dismiss</string>
+    <string name="DOWNLOAD_TITLE">Download Notification</string>
+    <string name="DOWNLOAD_MESSAGE">Download File | </string>
+    <string name="DOWNLOAD_POSITIVE">Download</string>
+    <string name="BRIDGE_MAIL_TITLE">Request New Bridge</string>
+    <string name="BRIDGE_MAIL_MESSAGE">You can get a bridge address through email, the web or by scanning a bridge QR code. Select \'Email\' below to request a bridge address.\n\nOnce you have an address, copy &amp; paste it into the above box and start.</string>
+    <string name="BRIDGE_MAIL_POSITIVE">EMAIL</string>
+    <string name="LONG_URL_TITLE">URL Notification</string>
+    <string name="LONG_URL_MESSAGE"></string>
+    <string name="LONG_URL_OPTION_1">Open In New Tab</string>
+    <string name="LONG_URL_OPTION_2">Open In Current Tab</string>
+    <string name="LONG_URL_OPTION_3">Copy to Clipboard</string>
+    <string name="LONG_URL_OPTION_4">Download this file</string>
+    <string name="LONG_URL_FULL_MESSAGE">URL Description</string>
+    <string name="LONG_URL_FULL_OPTION_1">Open url in new tab</string>
+    <string name="LONG_URL_FULL_OPTION_2">Open url in current tab</string>
+    <string name="LONG_URL_FULL_OPTION_3">Copy url to clipboard</string>
+    <string name="LONG_URL_FULL_OPTION_4">Open image in new tab</string>
+    <string name="LONG_URL_FULL_OPTION_5">Open image current tab</string>
+    <string name="LONG_URL_FULL_OPTION_6">Copy image to clipboard</string>
+    <string name="LONG_URL_FULL_OPTION_7">Download image file</string>
+    <string name="BANNED_TITLE">Is Tor Bannned In Your Country?</string>
+    <string name="BANNED_DESC">Enable free GATEWAY to tunnel through banned configuration | Use it only if tor is banned in your country</string>
+    <string name="message_error_m1">Internet Connection Error</string>
+    <string name="message_error_m2">Error while connecting to internet. Please check your connection and try again</string>
+
+    <!-- Error Page -->
+    <string name="error_m1">This site can\'t be reached</string>
+    <string name="error_m2">An error occurred during a connection</string>
+    <string name="error_m3">The page you are trying to view cannot be shown because the authenticity of the received data could not be verified</string>
+    <string name="error_m4">The page is currently not live or down due to some reason</string>
+    <string name="error_m5">Please contact the website owners to inform them of this problem.</string>
+    <string name="error_m6">Reload</string>
+
+    <!-- Splash -->
+    <string name="gateway_info" >Enable Gateway</string>
+    <string name="gateway_button" >Enable Gateway</string>
+    <string name="loading_please_wait" >Loading Please Wait</string>
+
+    <string-array name="fonts">
+        <item>55 Percent</item>
+        <item>70 Percent</item>
+        <item>85 Percent</item>
+        <item>100 Percent</item>
+        <item>115 Percent</item>
+        <item>130 Percent</item>
+        <item>145 Percent</item>
+    </string-array>
+
+    <string-array name="search_engines" tools:ignore="InconsistentArrays">
+        <item>Default</item>
+    </string-array>
+
+    <string-array name="boolean_option">
+        <item>Enabled</item>
+        <item>Disabled</item>
+    </string-array>
+
+    <string-array name="notification" tools:ignore="InconsistentArrays">
+        <item>Enable All</item>
+        <item>Disable All</item>
+    </string-array>
+
+    <string-array name="cookies">
+        <item>Allow All</item>
+        <item>Allow Trusted</item>
+        <item>Allow None</item>
+        <item>Allow Visited</item>
+        <item>Allow Non Tracker</item>
+    </string-array>
+
+    <string name="app_description" >Orbot is a free proxy app that empowers other apps to use the internet more securely. Orbot uses Tor to encrypt your Internet traffic and then hides it by bouncing through a series of computers around the world. Tor is free software and an open network that helps you defend against a form of network surveillance that threatens personal freedom and privacy, confidential business activities and relationships, and state security known as traffic analysis.</string>
+    <string name="status_starting_up" >Orbot is starting&#8230;</string>
+    <string name="status_activated" >Connected to the Tor network</string>
+    <string name="status_disabled" >Orbot is deactivated</string>
+    <string name="status_shutting_down" >TorService is shutting down</string>
+    <string name="tor_process_starting" >Starting Tor client&#8230;</string>
+    <string name="tor_process_complete" >complete.</string>
+    <string name="couldn_t_start_tor_process_" >Couldn\'t start Tor process: </string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_" >Your ReachableAddresses settings caused an exception!</string>
+    <string name="your_relay_settings_caused_an_exception_" >Your relay settings caused an exception!</string>
+    <string name="found_existing_tor_process" >found existing Tor process&#8230;</string>
+    <string name="something_bad_happened" >Something bad happened. Check the log</string>
+    <string name="unable_to_read_hidden_service_name" >unable to read onion service name</string>
+    <string name="unable_to_start_tor" >Unable to start Tor:</string>
+    <string name="no_internet_connection_tor" >No internet connection; Tor is on standby…</string>
+    <string name="newnym" >You\'ve switched to a new Tor identity!</string>
+    <string name="no_network_connectivity_putting_tor_to_sleep_" >No network connectivity. Putting Tor to sleep…</string>
+    <string name="network_connectivity_is_good_waking_tor_up_" >Network connectivity is good. Waking Tor up…</string>
+    <string name="updating_settings_in_tor_service" >updating settings in Tor service</string>
+    <string name="menu_new_identity" >New Identity</string>
+    <string name="desc_i2p_logo" >I2P logo</string>
+    <string name="choose_language" >Choose language</string>
+    <string name="welcome_new_install" >Welcome to I2P! This app is ALPHA software and it does not provide strong anonymity. Please read the release notes and license information.</string>
+    <string name="welcome_new_version" >New version installed. Please read the release notes. Version:</string>
+    <string name="label_tunnels" >Tunnels</string>
+    <string name="label_status" >Status</string>
+    <string name="label_console" >Console</string>
+    <string name="label_addresses" >Addresses</string>
+    <string name="label_addressbook" >Addressbook</string>
+    <string name="label_i2ptunnel" >@string/label_tunnels</string>
+    <string name="label_i2ptunnel_client" >Client tunnels</string>
+    <string name="label_i2ptunnel_server" >Server tunnels</string>
+    <string name="label_logs" >Logs</string>
+    <string name="label_error_logs" >Error Logs</string>
+    <string name="label_news" >News</string>
+    <string name="label_peers_status" >Peers</string>
+    <string name="label_release_notes" >Release Notes</string>
+    <string name="label_licenses" >Licenses</string>
+    <string name="label_browse" >Browse</string>
+    <string name="label_graphs" >Graphs</string>
+    <string name="button_router_off" >Long press to start I2P</string>
+    <string name="button_router_on" >I2P is running (long press to stop)</string>
+    <string name="button_router_graceful" >I2P will shut down in %s</string>
+    <string name="button_shutdown_now" >Long press to stop now</string>
+    <string name="button_cancel_graceful" >Long press to cancel shutdown</string>
+    <string name="no_internet" >No Internet connection is available</string>
+    <string name="net_status_ipv4_ipv6" >IPv4: %1$s; IPv6: %2$s</string>
+    <string name="hidden" >Hidden</string>
+    <string name="testing" >Testing</string>
+    <string name="firewalled" >Firewalled</string>
+    <string name="symmetric_nat" >Symmetric NAT</string>
+    <string name="vm_comm_system" >VM Comm System</string>
+    <string name="net_status_error_i2cp" >Client manager I2CP error - check logs</string>
+    <string name="net_status_error_skew" >Clock skew of %s</string>
+    <string name="net_status_error_unresolved_tcp" >Unresolved TCP address</string>
+    <string name="net_status_error_private_tcp" >Private TCP address</string>
+    <string name="net_status_warn_firewalled_inbound_tcp" >Firewalled with inbound TCP enabled</string>
+    <string name="net_status_warn_firewalled_floodfill" >Firewalled and floodfill</string>
+    <string name="net_status_info_disconnected" >Disconnected - check network connection</string>
+    <string name="net_status_error_udp_port" >UDP port in use - change in settings and restart</string>
+    <string name="net_status_error_no_active_peers" >No active peers - check network connection and firewall</string>
+    <string name="net_status_error_udp_disabled_tcp_not_set" >UDP disabled and inbound TCP host/port not set</string>
+    <string name="net_status_warn_firewalled_udp_disabled" >Firewalled with UDP disabled</string>
+    <string name="shared_clients" >Shared clients</string>
+    <string name="uptime" >Uptime</string>
+    <string name="active_peers" >Active peers</string>
+    <string name="known_peers" >Known peers</string>
+    <string name="char_client_tunnel" >C</string>
+    <string name="char_server_tunnel" >S</string>
+    <string name="no_tunnels_running" >No tunnels are running yet.</string>
+    <string name="download" >Download</string>
+    <string name="upload" >Upload</string>
+    <string name="configure_browser_title" >Configure browser?</string>
+    <string name="configure_browser_for_i2p" >Would you like to configure a browser to view I2P sites? (You can also do this later from the help menu.)</string>
+    <string name="configure_no_doze_title" >Manage Battery Optimizations?</string>
+    <string name="configure_no_doze" >I2P works best if it keeps running. To prevent Android from closing I2P when trying to save power, you can add it to the battery exceptions list. This will substantially improve the reliability of the application.\n\nKeep I2P running in the background? (recommended)</string>
+    <string name="first_start_title" >Congratulations on getting I2P installed!</string>
+    <string name="first_start_welcome" ><b>Welcome to I2P!</b> Please <b>have patience</b> as I2P boots up and finds peers.</string>
+    <string name="first_start_read" >While you are waiting, please read the release notes and welcome page.</string>
+    <string name="first_start_faq" >Once you have client tunnels, please <b>check out</b> our FAQ:</string>
+    <string name="url_faq" >http://i2p-projekt.i2p/en/faq</string>
+    <string name="first_start_faq_nonanon" >Or use this non-anonymous link if you don\'t want to wait for tunnels:</string>
+    <string name="url_faq_nonanon" >https://geti2p.net/en/faq</string>
+    <string name="first_start_irc" >Point your IRC client to <b>localhost:6668</b> and say hi to us on:</string>
+    <string name="url_irc_i2p" >irc://127.0.0.1:6668/i2p | irc://127.0.0.1:6668/i2p-dev</string>
+    <string name="action_search" >Search</string>
+    <string name="action_add" >Add</string>
+    <string name="action_edit" >Edit</string>
+    <string name="action_delete" >Delete</string>
+    <string name="action_i2ptunnel_start" >Start tunnel</string>
+    <string name="action_i2ptunnel_stop" >Stop tunnel</string>
+    <string name="action_i2ptunnel_start_all" >Start all tunnels</string>
+    <string name="action_i2ptunnel_stop_all" >Stop all tunnels</string>
+    <string name="action_i2ptunnel_restart_all" >Restart all tunnels</string>
+    <string name="action_reload" >Reload</string>
+    <string name="action_refresh" >Refresh</string>
+    <string name="hint_search_addressbook" >Search addressbook</string>
+    <string name="action_reload_subscriptions" >Reload subscriptions</string>
+    <string name="news_last_updated" >News last updated %s ago</string>
+    <string name="news_last_checked" >News last checked %s ago</string>
+    <string name="news_updated" >News Updated</string>
+    <string name="view_news" >Touch to view latest I2P news</string>
+    <string name="router_not_running" >The router is not running.</string>
+    <string name="router_shutting_down" >The router is shutting down.</string>
+    <string name="stats_not_ready" >The statistics manager is not ready yet. Try again later.</string>
+    <string name="select_an_address" >Select an address.</string>
+    <string name="no_graphs_configured" >No graphs have been configured. You can choose statistics to graph in the settings menu. Any changes will take effect after 60 seconds.</string>
+    <string name="configure_graphs" >Configure graphs</string>
+    <string name="graphs_not_ready" >Graphs are not ready yet. Try again later.</string>
+    <string name="statistics" >Statistics</string>
+    <string name="routers" >Routers</string>
+    <string name="leasesets" >LeaseSets</string>
+    <string name="countries" >Countries</string>
+    <string name="country" >Country</string>
+    <string name="transport" >Transport</string>
+    <string name="versions" >Versions</string>
+    <string name="version" >Version</string>
+    <string name="count" >Count</string>
+    <string name="tname_0" >Hidden or starting up</string>
+    <string name="tname_1" >SSU</string>
+    <string name="tname_2" >SSU with introducers</string>
+    <string name="tname_4" >NTCP</string>
+    <string name="tname_5" >NTCP and SSU</string>
+    <string name="tname_6" >NTCP and SSU with introducers</string>
+    <string name="tname_9" >IPv6 SSU</string>
+    <string name="tname_10" >IPv6 Only SSU, introducers</string>
+    <string name="tname_11" >IPv6 SSU, introducers</string>
+    <string name="tname_12" >IPv6 NTCP</string>
+    <string name="tname_13" >IPv6 NTCP, SSU</string>
+    <string name="tname_14" >IPv6 Only NTCP, SSU, introducers</string>
+    <string name="tname_15" >IPv6 NTCP, SSU, introducers</string>
+    <string name="netdb_routers_empty" >No routers in your NetDB.</string>
+    <string name="netdb_leases_empty" >No LeaseSets in your NetDB.</string>
+    <string name="notification_status_starting" >I2P is starting up</string>
+    <string name="notification_status_restarting" >I2P is restarting</string>
+    <string name="notification_status_waiting" >I2P is waiting for a network connection</string>
+    <string name="notification_status_starting_after_waiting" >Network connected, I2P is starting up</string>
+    <string name="notification_status_running"  translatable="false">I2P is Loading | Please Wait</string>
+    <string name="notification_status_client_ready" >Client tunnels are ready</string>
+    <string name="notification_status_client_down" >Client tunnels are down</string>
+    <string name="notification_status_graceful" >Stopping I2P in %s</string>
+    <string name="notification_status_stopping" >Stopping I2P</string>
+    <string name="notification_status_stopping_after_net" >Network disconnected, stopping I2P</string>
+    <string name="notification_status_shutdown_cancelled" >Shutdown cancelled</string>
+    <string name="notification_status_shutting_down" >I2P is shutting down</string>
+    <string name="notification_status_text" >%1$sBps ↓ / %2$sBps ↑</string>
+    <string name="notification_status_bw" >Bandwidth: %1$sbps ↓ / %2$sbps ↑</string>
+    <string name="notification_status_peers" >Peers: %1$d active, %2$d known</string>
+    <string name="notification_status_expl" >Exploratory tunnels: %1$d/%2$d</string>
+    <string name="notification_status_client" >Client tunnels: %1$d/%2$d</string>
+    <string name="menu_settings" >Settings</string>
+    <string name="settings_enable" >Enable</string>
+    <string name="settings_desc_subscriptions" >Subscription URLs</string>
+    <string name="settings_label_bandwidth_net" >Bandwidth and network</string>
+    <string name="settings_label_startOnBoot" >Start I2P on Boot</string>
+    <string name="settings_desc_startOnBoot" >Automatically connect to I2P when your Android device starts up</string>
+    <string name="settings_label_bandwidth" >Bandwidth</string>
+    <string name="settings_label_bw_inbound" >Inbound speed</string>
+    <string name="settings_desc_bw_inbound" >Maximum inbound speed</string>
+    <string name="settings_label_bw_outbound" >Outbound speed</string>
+    <string name="settings_desc_bw_outbound" >Maximum outbound speed</string>
+    <string name="settings_label_network" >Network</string>
+    <string name="settings_label_hiddenMode" >Participation</string>
+    <string name="settings_desc_hiddenMode" >Turn off hidden mode</string>
+    <string name="settings_label_maxPartTunnels" >Max participating tunnels</string>
+    <string name="settings_desc_maxPartTunnels" >Maximum tunnels to participate in (default=20)</string>
+    <string name="settings_dialog_maxPartTunnels" >Maximum tunnels to participate in</string>
+    <string name="settings_label_sharePercent" >Share percentage</string>
+    <string name="settings_desc_sharePercent" >Percentage of bandwidth to share (default=80)</string>
+    <string name="settings_dialog_sharePercent" >Percentage of bandwidth to share</string>
+    <string name="settings_desc_upnp" >Open firewall ports automatically</string>
+    <string name="settings_label_logging" >Logging</string>
+    <string name="settings_label_default_log_level" >Default log level</string>
+    <string name="settings_label_appearance" >Appearance</string>
+    <string name="settings_label_language" >Language</string>
+    <string name="settings_default" >Default</string>
+    <string name="settings_label_advanced" >Advanced</string>
+    <string name="settings_label_showStats" >Router statistics</string>
+    <string name="settings_summ_showStats" >Display advanced stats in main console</string>
+    <string name="settings_label_transports" >Transports</string>
+    <string name="settings_label_maxConns" >Max connections</string>
+    <string name="settings_label_i2cp" >I2CP interface</string>
+    <string name="settings_desc_i2cp" >Allow third-party apps to create tunnels (requires router restart)</string>
+    <string name="settings_label_exploratory_pool" >Exploratory pool</string>
+    <string name="settings_desc_exploratory_pool" >Tunnel parameters</string>
+    <string name="settings_label_expl_inbound" >Inbound tunnels</string>
+    <string name="settings_label_expl_outbound" >Outbound tunnels</string>
+    <string name="settings_label_expl_length" >Length</string>
+    <string name="settings_summ_expl_length" >%s hops</string>
+    <string name="settings_desc_expl_length" >How many hops to use</string>
+    <string name="settings_label_expl_lengthVariance" >Hop variance</string>
+    <string name="settings_summ_expl_lengthVariance" >%s</string>
+    <string name="settings_desc_expl_lengthVariance" >How many hops to randomly add</string>
+    <string name="settings_label_expl_quantity" >Quantity</string>
+    <string name="settings_summ_expl_quantity" >%s tunnels</string>
+    <string name="settings_desc_expl_quantity" >How many tunnels</string>
+    <string name="settings_label_expl_backupQuantity" >Backup quantity</string>
+    <string name="settings_summ_expl_backupQuantity" >%s tunnels</string>
+    <string name="settings_desc_expl_backupQuantity" >How many tunnel backups</string>
+    <string name="settings_need_transport_enabled" >You must have at least one transport enabled</string>
+    <string name="settings_router_restart_required" >Please restart I2P to apply the changes</string>
+    <string name="menu_about" >About</string>
+    <string name="about_version" >Version:</string>
+    <string name="about_project" >Project Home:</string>
+    <string name="url_project" >https://geti2p.net | http://i2p-projekt.i2p</string>
+    <string name="about_bugs" >Bugs and Support:</string>
+    <string name="url_android_forum" >http://zzz.i2p/forums/17</string>
+    <string name="about_helpwanted" >Help Wanted!</string>
+    <string name="about_volunteer" >Want to help make the app better? Volunteer on the Android forum:</string>
+    <string name="about_donate" >Want to donate money or bitcoins to buy more Android devices for development and testing? Go to:</string>
+    <string name="url_donate" >https://geti2p.net/en/donate | http://i2p-projekt.i2p/en/donate</string>
+    <string name="menu_help" >Help</string>
+    <string name="general" >General</string>
+    <string name="label_router" >Public addresses</string>
+    <string name="label_private" >Private addresses</string>
+    <string name="addressbook_is_empty" >Addressbook is empty</string>
+    <string name="addressbook_search_header" >%s found</string>
+    <string name="addressbook_add_wizard_k_name" >Name</string>
+    <string name="addressbook_add_wizard_k_destination" >Destination</string>
+    <string name="addressbook_add_wizard_desc_name" >The name</string>
+    <string name="addressbook_add_wizard_desc_destination" >Paste the B64 of the Destination here. If you have a File Manager installed, you can browse for a text file containing the B64.</string>
+    <string name="nsu_iae_illegal_char" >Host name \"%1$s\" contains illegal character %2$s</string>
+    <string name="nsu_iae_cannot_start_with" >Host name cannot start with \"%s\"</string>
+    <string name="nsu_iae_cannot_end_with" >Host name cannot end with \"%s\"</string>
+    <string name="nsu_iae_cannot_contain" >Host name cannot contain \"%s\"</string>
+    <string name="nsu_iae_requires_conversion" >Host name \"%s\" requires conversion to ASCII but the conversion library is unavailable in this Android version</string>
+    <string name="i2ptunnel_type_client" >Standard client</string>
+    <string name="i2ptunnel_type_httpclient" >HTTP client</string>
+    <string name="i2ptunnel_type_ircclient" >IRC client</string>
+    <string name="i2ptunnel_type_server" >Standard server</string>
+    <string name="i2ptunnel_type_httpserver" >HTTP server</string>
+    <string name="i2ptunnel_type_sockstunnel" >SOCKS 4/4a/5 proxy</string>
+    <string name="i2ptunnel_type_socksirctunnel" >SOCKS IRC proxy</string>
+    <string name="i2ptunnel_type_connectclient" >CONNECT/SSL/HTTPS proxy</string>
+    <string name="i2ptunnel_type_ircserver" >IRC server</string>
+    <string name="i2ptunnel_type_streamrclient" >Streamr client</string>
+    <string name="i2ptunnel_type_streamrserver" >Streamr server</string>
+    <string name="i2ptunnel_type_httpbidirserver" >HTTP bidir</string>
+    <string name="market_irc" >market://search?q=pname:com.androirc</string>
+    <string name="install_recommended_app" >Install recommended app?</string>
+    <string name="app_needed_for_this_tunnel_type" >You need to install an app to use this tunnel. Would you like to install the recommended app?</string>
+    <string name="i2ptunnel_not_initialized" >Tunnels are not initialized yet, please reload in two minutes.</string>
+    <string name="no_configured_client_tunnels" >No configured client tunnels.</string>
+    <string name="no_configured_server_tunnels" >No configured server tunnels.</string>
+    <string name="i2ptunnel_new_tunnel" >New Tunnel</string>
+    <string name="i2ptunnel_msg_config_saved" >Configuration changes saved</string>
+    <string name="i2ptunnel_msg_config_save_failed" >Failed to save configuration</string>
+    <string name="i2ptunnel_msg_tunnel_starting" >Starting tunnel</string>
+    <string name="i2ptunnel_msg_tunnel_stopping" >Stopping tunnel</string>
+    <string name="i2ptunnel_delete_confirm_message" >Delete tunnel?</string>
+    <string name="i2ptunnel_delete_confirm_button" >Delete tunnel</string>
+    <string name="i2ptunnel_no_tunnel_details" >Could not load tunnel details</string>
+    <string name="i2ptunnel_wizard_k_client_server" >Client or Server</string>
+    <string name="i2ptunnel_wizard_v_client" >Client tunnel</string>
+    <string name="i2ptunnel_wizard_v_server" >Server tunnel</string>
+    <string name="i2ptunnel_wizard_k_type" >Tunnel type</string>
+    <string name="i2ptunnel_wizard_k_name" >Name</string>
+    <string name="i2ptunnel_wizard_k_desc" >Description</string>
+    <string name="i2ptunnel_wizard_k_dest" >Destination</string>
+    <string name="i2ptunnel_wizard_k_outproxies" >Outproxies</string>
+    <string name="i2ptunnel_wizard_k_target_host" >Target host</string>
+    <string name="i2ptunnel_wizard_k_target_port" >Target port</string>
+    <string name="i2ptunnel_wizard_k_reachable_on" >Reachable on</string>
+    <string name="i2ptunnel_wizard_k_binding_port" >Binding port</string>
+    <string name="i2ptunnel_wizard_k_auto_start" >Auto start</string>
+    <string name="next" >Next</string>
+    <string name="prev" >Previous</string>
+    <string name="finish" >Submit</string>
+    <string name="review" >Review</string>
+    <string name="enabled" >Enabled</string>
+    <string name="i2ptunnel_wizard_desc_name" >The name of the tunnel, for identification in the tunnel list.</string>
+    <string name="i2ptunnel_wizard_desc_desc" >A description of the tunnel. This is optional and purely informative.</string>
+    <string name="i2ptunnel_wizard_desc_dest" >Type in the I2P destination of the service that this client tunnel should connect to. This could be the full base 64 destination key, or an I2P host name from your address book.</string>
+    <string name="i2ptunnel_wizard_desc_outproxies" >If you know of any outproxies for this type of tunnel (either HTTP or SOCKS), fill them in. Separate multiple proxies with commas.</string>
+    <string name="i2ptunnel_wizard_desc_target_host" >This is the IP that your service is running on, this is usually on the same machine so 127.0.0.1 is autofilled.</string>
+    <string name="i2ptunnel_wizard_desc_target_port" >This is the port that the service is accepting connections on.</string>
+    <string name="i2ptunnel_wizard_desc_reachable_on" >This limits what computers or smartphones can access this tunnel.</string>
+    <string name="i2ptunnel_wizard_desc_binding_port" >This is the port that the client tunnel will be accessed from locally. This is also the client port for the HTTP bidir server tunnel.</string>
+    <string name="i2ptunnel_wizard_desc_auto_start" >Should the tunnel automatically start when the router starts?</string>
+    <string name="i2ptunnel_wizard_submit_confirm_message" >Create tunnel?</string>
+    <string name="i2ptunnel_wizard_submit_confirm_button" >Create tunnel</string>
+    <string name="i2ptunnel_view_target" >Target</string>
+    <string name="i2ptunnel_view_access_point" >Access point</string>
+    <string name="i2ptunnel_view_autostart" >Auto-start</string>
+    <string name="address_copied_to_clipboard" >Address copied to clipboard</string>
+    <string name="edit_tunnel" >Edit tunnel</string>
+    <string name="name" >Name</string>
+    <string name="description" >Description</string>
+    <string name="auto_start" >Auto-start</string>
+    <string name="tunnel_summ_auto_start" >Start the tunnel when the router starts.</string>
+    <string name="tunnel_cat_ports" >Local ports</string>
+    <string name="shared_client" >Shared client</string>
+    <string name="tunnel_summ_shared_client" >Use the same Destination and tunnels as other shared clients</string>
+    <string name="target_destination" >Target destination</string>
+    <string name="persistent_key" >Persistent key</string>
+    <string name="persistent_key_conflict_title" >Disable new keys on reopen?</string>
+    <string name="persistent_key_conflict_msg" >You can\'t enable persistent keys while the tunnel is configured to generate new keys on reopen. Do you want to disable new keys on reopen?</string>
+    <string name="tunnel_summ_persistent_key" >Keep this tunnel\'s Destination when it restarts</string>
+    <string name="reachable_on" >Reachable on</string>
+    <string name="listen_port" >Listen port</string>
+    <string name="client_ssl" >Client SSL</string>
+    <string name="tunnel_summ_client_ssl" >Clients must use SSL to connect</string>
+    <string name="outproxies" >Outproxies</string>
+    <string name="ssl_outproxies" >SSL outproxies</string>
+    <string name="irc" >IRC</string>
+    <string name="enable_dcc" >Enable DCC</string>
+    <string name="tunnel_summ_enable_dcc" >Allow IRC clients to use DCC</string>
+    <string name="website_domain_name" >Website domain name</string>
+    <string name="target_host" >Target host</string>
+    <string name="target_port" >Target port</string>
+    <string name="use_ssl" >Use SSL</string>
+    <string name="tunnel_summ_use_ssl" >Use SSL to connect to target</string>
+    <string name="tunnel_parameters" >Tunnel parameters</string>
+    <string name="profile" >Profile</string>
+    <string name="profile_bulk" >Bulk connection (downloads/websites/BT)</string>
+    <string name="profile_interactive" >Interactive connection</string>
+    <string name="delay_connect" >Delay connect</string>
+    <string name="tunnel_summ_delay_connect" >Enable for request/response connections</string>
+    <string name="access_control" >Access control</string>
+    <string name="restricted_access" >Restricted access</string>
+    <string name="disabled" >Disabled</string>
+    <string name="whitelist" >Whitelist</string>
+    <string name="blacklist" >Blacklist</string>
+    <string name="access_list" >Access list</string>
+    <string name="reject_inproxies" >Reject inproxies</string>
+    <string name="tunnel_summ_reject_inproxies"  translatable="false">Only allow I2P users to connect</string>
+    <string name="unique_local" >Unique local</string>
+    <string name="tunnel_summ_unique_local" >Use unique localhost IPs for each client</string>
+    <string name="multihome" >Multihome</string>
+    <string name="tunnel_summ_multihome" >Enable multihoming optimizations</string>
+    <string name="client_connection_limits" >Client connection limits</string>
+    <string name="connections_per_minute" >Connections per minute</string>
+    <string name="connections_per_hour" >Connections per hour</string>
+    <string name="connections_per_day" >Connections per day</string>
+    <string name="total_connection_limits" >Total connection limits</string>
+    <string name="total_connections_per_minute" >Total connections per minute</string>
+    <string name="total_connections_per_hour" >Total connections per hour</string>
+    <string name="total_connections_per_day" >Total connections per day</string>
+    <string name="max_active_connections" >Max active connections</string>
+    <string name="num_per_minute" >%s per minute</string>
+    <string name="num_per_hour" >%s per hour</string>
+    <string name="num_per_day" >%s per day</string>
+    <string name="unlimited" >Unlimited</string>
+    <string name="set_zero_for_unlimited" >Set 0 for unlimited</string>
+    <string name="post_limits" >POST limits</string>
+    <string name="limit_period" >Limit period</string>
+    <string name="client_posts_per_period" >Client POSTs per period</string>
+    <string name="client_ban_length" >Client ban length</string>
+    <string name="total_posts_per_period" >Total POSTs per period</string>
+    <string name="total_ban_length" >Total ban length</string>
+    <string name="power_saving" >Power saving</string>
+    <string name="delay_open" >Delay open</string>
+    <string name="tunnel_summ_delay_open" >Delay tunnel open until required</string>
+    <string name="reduce_quantity" >Reduce quantity</string>
+    <string name="tunnel_summ_reduce_quantity" >Reduce tunnel quantity when idle</string>
+    <string name="idle_time" >Idle time</string>
+    <string name="num_minutes" >%s minutes</string>
+    <string name="reduced_tunnel_quantity" >Reduced tunnel quantity</string>
+    <string name="close_tunnels" >Close tunnels when idle</string>
+    <string name="new_keys_on_reopen" >New keys on reopen</string>
+    <string name="new_keys_on_reopen_conflict_title" >Disable persistent keys?</string>
+    <string name="new_keys_on_reopen_conflict_msg" >You can\'t enable new keys on reopen while the tunnel is configured to have persistent keys. Do you want to disable persistent keys?</string>
+    <string name="http_client" >HTTP client</string>
+    <string name="tunnel_summ_user_agent" >Pass \'User-Agent\' header through</string>
+    <string name="tunnel_summ_referer" >Pass \'Referer\' header through</string>
+    <string name="tunnel_summ_accept" >Pass \'Accept-*\' headers through</string>
+    <string name="tunnel_summ_allow_ssl" >Allow SSL to I2P addresses</string>
+    <string name="jump_url_list" >Jump URL list</string>
+    <string name="proxy_auth" >Proxy authorization</string>
+    <string name="tunnel_summ_proxy_auth" >Require a login to use this proxy</string>
+    <string name="username" >Username</string>
+    <string name="password" >Password</string>
+    <string name="outproxy_auth" >Outproxy authorization</string>
+    <string name="tunnel_summ_outproxy_auth" >The login required for the outproxy</string>
+    <string name="other" >Other</string>
+    <string name="signature_type" >Signature type</string>
+    <string name="custom_options" >Custom options</string>
+    <string name="all" >All</string>
+    <string name="no_messages" >No messages</string>
+    <string name="no_error_messages" >No error messages</string>
+    <plurals name="log_error_messages">
+        <item quantity="one">One error message</item>
+        <item quantity="other">%d error messages, newest first</item>
+    </plurals>
+    <plurals name="log_messages">
+        <item quantity="one">One message</item>
+        <item quantity="other">%d messages, newest first</item>
+    </plurals>
+    <string name="log_entry" >Log Entry</string>
+    <string name="copy_logs" >Copy logs</string>
+    <string name="i2p_android_error_logs" translatable="false">I2P Android Error Logs</string>
+    <string name="i2p_android_logs" translatable="false">I2P Android Logs</string>
+    <string name="error_logs_copied_to_clipboard" >Error logs copied to clipboard</string>
+    <string name="logs_copied_to_clipboard" >Logs copied to clipboard</string>
+    <string name="label_browser_configuration" >Browser configuration</string>
+    <string name="no_market_app" >No market app found, please install manually</string>
+    <string name="unset" >Unset</string>
+</resources>

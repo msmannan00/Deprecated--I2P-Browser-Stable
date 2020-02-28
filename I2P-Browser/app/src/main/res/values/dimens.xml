@@ -1,0 +1,43 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin_no_padding">0dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="nav_horizontal_margin">16dp</dimen>
+    <dimen name="nav_entry_height">48dp</dimen>
+
+    <dimen name="text_size_primary">16sp</dimen>
+    <dimen name="text_size_secondary">14sp</dimen>
+
+    <dimen name="pager_indicator_footer_line_height">2dp</dimen>
+    <dimen name="pager_indicator_footer_padding">7dp</dimen>
+    <dimen name="pager_indicator_text_size">15dp</dimen>
+    <dimen name="pager_indicator_top_padding">7dp</dimen>
+
+    <dimen name="toolbar_height_with_text">112dp</dimen>
+
+    <dimen name="list_vertical_padding">8dp</dimen>
+    <dimen name="list_top_margin">@dimen/list_vertical_padding</dimen>
+    <dimen name="listitem_horizontal_margin">16dp</dimen>
+    <dimen name="listitem_picture_size">40dp</dimen>
+    <dimen name="listitem_icon_size">24dp</dimen>
+    <dimen name="listitem_text_left_margin">72dp</dimen>
+    <dimen name="listitem_icon_left_margin">8dp</dimen>
+
+    <dimen name="listitem_height_one_line">48dp</dimen>
+    <dimen name="listitem_height_one_line_avatar">56dp</dimen>
+
+    <dimen name="listitem_height_two_lines">72dp</dimen>
+    <dimen name="listitem_text_top_margin_two_lines">16dp</dimen>
+    <dimen name="listitem_text_bottom_margin_two_lines">18dp</dimen>
+
+    <dimen name="tunnel_indicator">20dp</dimen>
+
+    <dimen name="step_pager_tab_width">32dp</dimen>
+    <dimen name="step_pager_tab_height">3dp</dimen>
+    <dimen name="step_pager_tab_spacing">4dp</dimen>
+
+    <dimen name="graph_domain_tick_label_font_size">15dp</dimen>
+    <dimen name="graph_range_tick_label_font_size">15dp</dimen>
+</resources>

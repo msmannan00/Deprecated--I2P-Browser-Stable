@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory
+        android:key="settings_udp"
+        android:title="UDP">
+        <!--
+        i2np.udp.enable=false
+        I might hide this one...
+        -->
+        <CheckBoxPreference
+            app:iconSpaceReserved="false"
+            android:defaultValue="true"
+            android:key="@string/PROP_ENABLE_UDP"
+            android:summary="DO NOT DISABLE THIS"
+            android:title="@string/settings_enable" />
+
+        <net.i2p.android.preferences.util.PortPreference
+            app:iconSpaceReserved="false"
+            android:dependency="@string/PROP_ENABLE_UDP"
+            android:key="@string/PROP_UDP_INTERNAL_PORT"
+            android:title="UDP port" />
+
+        <!--
+        i2np.udp.maxConnections=12
+        -->
+        <com.pavelsikun.seekbarpreference.SeekBarPreference
+            app:iconSpaceReserved="false"
+            android:dependency="@string/PROP_ENABLE_UDP"
+            android:key="@string/PROP_UDP_MAX_CONNECTIONS"
+            android:shouldDisableView="true"
+            android:title="@string/settings_label_maxConns"
+            app:msbp_defaultValue="32"
+            app:msbp_maxValue="500" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="settings_ntcp"
+        android:title="NTCP">
+        <CheckBoxPreference
+            app:iconSpaceReserved="false"
+            android:defaultValue="true"
+            android:key="@string/PROP_ENABLE_NTCP"
+            android:title="@string/settings_enable" />
+
+        <CheckBoxPreference
+            app:iconSpaceReserved="false"
+            android:defaultValue="true"
+            android:dependency="@string/PROP_ENABLE_NTCP"
+            android:disableDependentsState="true"
+            android:key="@string/PROP_I2NP_NTCP_AUTO_PORT"
+            android:summary="Use same port as UDP"
+            android:title="Auto-set port" />
+
+        <net.i2p.android.preferences.util.PortPreference
+            app:iconSpaceReserved="false"
+            android:dependency="@string/PROP_I2NP_NTCP_AUTO_PORT"
+            android:key="@string/PROP_I2NP_NTCP_PORT"
+            android:title="NTCP port" />
+        <!--
+        i2np.ntcp.maxConnections=24
+        -->
+        <com.pavelsikun.seekbarpreference.SeekBarPreference
+            app:iconSpaceReserved="false"
+            android:dependency="i2np.ntcp.enable"
+            android:key="@string/PROP_NTCP_MAX_CONNECTIONS"
+            android:shouldDisableView="true"
+            android:title="@string/settings_label_maxConns"
+            app:msbp_defaultValue="32"
+            app:msbp_maxValue="250" />
+    </PreferenceCategory>
+</PreferenceScreen>

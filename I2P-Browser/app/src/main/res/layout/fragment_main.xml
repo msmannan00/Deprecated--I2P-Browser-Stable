@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/dark_purple"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/main_scrollview"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_marginStart="-6dp"
+        android:layout_marginLeft="-6dp"
+        android:layout_marginEnd="-5dp"
+        android:layout_marginRight="-5dp"
+        android:layout_weight="1"
+        android:background="@drawable/side_shadow"
+        android:fillViewport="true"
+        android:paddingLeft="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_vertical_margin"
+        android:scrollbarStyle="outsideInset">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="100dp">
+
+            <ImageView
+                android:id="@+id/console_lights"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/desc_i2p_logo"
+                android:layout_marginLeft="-5dp"
+                android:scaleType="fitCenter"
+
+                android:src="@drawable/routerlogo_0" />
+
+            <LinearLayout
+                android:id="@+id/router_button_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <net.i2p.android.router.util.LongToggleButton
+                    android:id="@+id/router_onoff_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@xml/rounded_corner"
+                    android:textOff="@string/button_router_off"
+                    android:textOn="@string/button_router_on" />
+
+                <LinearLayout
+                    android:id="@+id/router_graceful_buttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/router_graceful_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/button_shutdown_now"
+                            android:layout_width="0dp"
+                            android:layout_height="68dp"
+                            android:layout_weight="1"
+                            android:background="@xml/rounded_corner"
+                            android:textColor="@color/white"
+                            android:text="@string/button_shutdown_now" />
+
+                        <Button
+                            android:id="@+id/button_cancel_graceful"
+                            android:layout_width="0dp"
+                            android:layout_height="68dp"
+                            android:layout_weight="1"
+                            android:background="@xml/rounded_corner"
+                            android:textColor="@color/white"
+                            android:text="@string/button_cancel_graceful" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/status_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/console_status" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="?attr/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+                <LinearLayout
+                    android:id="@+id/console_usage_stats"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="88dp"
+                    android:layout_marginRight="88dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:textColor="@color/white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/download"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                        <TextView
+                            android:textColor="@color/white"
+                            android:id="@+id/console_download_stats"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="0.0 KB / 0.0 KB" />
+                    </LinearLayout>
+
+                    <View
+                        style="@style/Divider.Vertical"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:textColor="@color/white"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/upload"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                        <TextView
+                            android:textColor="@color/white"
+                            android:id="@+id/console_upload_stats"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="0.0 KB / 0.0 KB" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

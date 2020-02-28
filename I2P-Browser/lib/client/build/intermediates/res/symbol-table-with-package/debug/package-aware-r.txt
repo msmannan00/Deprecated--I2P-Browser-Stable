@@ -1,0 +1,2 @@
+net.i2p.android.lib.client
+string app_name
