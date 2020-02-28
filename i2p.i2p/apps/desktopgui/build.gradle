@@ -1,0 +1,14 @@
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+    }
+}
+
+dependencies {
+    compile project(':core')
+    compile project(':router')
+    compile project(':installer')
+    compile project(':apps:systray')
+}

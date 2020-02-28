@@ -1,0 +1,32 @@
+plugins {
+    id 'java-library'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'java/src'
+        }
+    }
+    test {
+        java {
+            srcDir 'java/test/junit'
+            exclude {
+                it.name.endsWith('IT.java')
+            }
+        }
+    }
+}
+
+dependencies {
+    api project(':core')
+    api project(':apps:ministreaming')
+    testImplementation project(path: ':apps:ministreaming', configuration: 'tests')
+}
+
+jar {
+    manifest {
+        attributes 'Specification-Title': 'I2P Streaming Implementation'
+        attributes 'Implementation-Title': 'I2P Java Streaming Implementation'
+    }
+}

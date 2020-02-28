@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="all" name="i2psnark">
+    <target name="all" depends="clean, build" />
+    <target name="build" depends="builddep, jar, war" />
+    <target name="builddep">
+        <!-- run from top level build.xml to get dependencies built -->
+    </target>
+    <condition property="depend.available">
+        <typefound name="depend" />
+    </condition>
+    <target name="depend" if="depend.available">
+        <depend
+            cache="../../../build"
+            srcdir="./src" 
+            destdir="./build/obj" >
+            <!-- Depend on classes instead of jars where available -->
+            <classpath>
+                <pathelement location="../../../core/java/build/obj" />
+                <pathelement location="../../../core/java/build/gnu-getopt.jar" />
+                <pathelement location="../../ministreaming/java/build/obj" />
+                <pathelement location="../../jetty/jettylib/javax.servlet.jar" />
+                <!-- jsp-api.jar only present for debian builds -->
+                <pathelement location="../../jetty/jettylib/jsp-api.jar" />
+            </classpath>
+        </depend>
+    </target>
+
+    <!-- only used if not set by a higher build.xml -->
+    <property name="javac.compilerargs" value="" />
+    <property name="javac.version" value="1.7" />
+    <property name="require.gettext" value="true" />
+    <property name="manifest.classpath.name" value="Class-Path" />
+
+    <condition property="no.bundle">
+        <isfalse value="${require.gettext}" />
+    </condition>
+
+    <target name="compile" depends="depend">
+        <mkdir dir="./build" />
+        <mkdir dir="./build/obj" />
+        <javac 
+            srcdir="./src" 
+            debug="true" deprecation="on" source="${javac.version}" target="${javac.version}" 
+            destdir="./build/obj" 
+            includeAntRuntime="false" >
+            <compilerarg line="${javac.compilerargs}" />
+            <classpath>
+                <pathelement location="../../../core/java/build/i2p.jar" />
+                <!-- gnu-getopt.jar only present for debian builds -->
+                <pathelement location="../../../core/java/build/gnu-getopt.jar" />
+                <pathelement location="../../ministreaming/java/build/mstreaming.jar" />
+                <pathelement location="../../jetty/jettylib/javax.servlet.jar" />
+                <!-- jsp-api.jar only present for debian builds -->
+                <pathelement location="../../jetty/jettylib/jsp-api.jar" />
+                <!-- following jars only for standalone builds -->
+                <pathelement location="../../jetty/jettylib/jetty-i2p.jar" />
+                <pathelement location="../../systray/java/build/systray.jar" />
+                <pathelement location="../../jetty/jettylib/org.mortbay.jetty.jar" />
+                <pathelement location="../../jetty/jettylib/jetty-util.jar" />
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="listChangedFiles" depends="jarUpToDate" if="shouldListChanges" >
+        <exec executable="mtn" outputproperty="workspace.changes" errorproperty="mtn.error2" failifexecutionfails="false" >
+            <arg value="list" />
+            <arg value="changed" />
+            <arg value=".." />
+        </exec>
+        <!-- \n in an attribute value generates an invalid manifest -->
+        <exec executable="tr" inputstring="${workspace.changes}" outputproperty="workspace.changes.tr" errorproperty="mtn.error2" failifexecutionfails="false" >
+            <arg value="-s" />
+            <arg value="[:space:]" />
+            <arg value="," />
+        </exec>
+    </target>
+
+    <target name="jar" depends="builddep, compile, jarUpToDate, listChangedFiles" unless="jar.uptodate" >
+        <!-- set if unset -->
+        <property name="workspace.changes.tr" value="" />
+        <jar destfile="./build/i2psnark.jar" basedir="./build/obj" includes="**/*.class" excludes="**/web/* **/messages_*.class, **/standalone/*">
+            <manifest>
+                <attribute name="Main-Class" value="org.klomp.snark.CommandLine" />
+                <attribute name="${manifest.classpath.name}" value="i2p.jar mstreaming.jar streaming.jar" />
+                <attribute name="Implementation-Version" value="${full.version}" />
+                <attribute name="Built-By" value="${build.built-by}" />
+                <attribute name="Build-Date" value="${build.timestamp}" />
+                <attribute name="Base-Revision" value="${workspace.version}" />
+                <attribute name="Workspace-Changes" value="${workspace.changes.tr}" />
+                <attribute name="X-Compile-Source-JDK" value="${javac.version}" />
+                <attribute name="X-Compile-Target-JDK" value="${javac.version}" />
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="jarUpToDate">
+        <uptodate property="jar.uptodate" targetfile="build/i2psnark.jar" >
+            <srcfiles dir= "build/obj" includes="**/*.class" excludes="**/web/* **/messages_*.class" />
+        </uptodate>
+        <condition property="shouldListChanges" >
+            <and>
+                <not>
+                    <isset property="jar.uptodate" />
+                </not>
+                <not>
+                    <isset property="war.uptodate" />
+                </not>
+                <isset property="mtn.available" />
+            </and>
+        </condition>
+    </target>    
+
+    <!-- Ideally we would include
+      -  only include the servlet, everything else is in the jar.
+      -  However, the wrapper.config classpath in existing installs
+      -  does not include i2psnark.jar.
+      -  So we must continue to duplicate everything in the war.
+          <classes dir="./build/obj" includes="**/I2PSnarkServlet*.class" />
+     -->
+    <target name="war" depends="jar, bundle, warUpToDate, listChangedFiles" unless="war.uptodate" > 
+        <!-- set if unset -->
+        <property name="workspace.changes.tr" value="" />
+        <copy todir="build/resources/.resources" >
+            <fileset dir="../resources/" />
+        </copy>
+        <!-- mime.properties must be in with the classes -->
+        <copy file="../mime.properties" todir="build/obj/org/klomp/snark/web" />
+        <war destfile="../i2psnark.war" webxml="../web.xml" >
+          <!-- include only the web stuff, as of 0.7.12 the router will add i2psnark.jar to the classpath for the war -->
+          <classes dir="./build/obj" includes="**/web/*" />
+            <fileset dir="build/resources/" />
+            <manifest>
+                <attribute name="Implementation-Version" value="${full.version}" />
+                <attribute name="Built-By" value="${build.built-by}" />
+                <attribute name="Build-Date" value="${build.timestamp}" />
+                <attribute name="Base-Revision" value="${workspace.version}" />
+                <attribute name="Workspace-Changes" value="${workspace.changes.tr}" />
+                <attribute name="X-Compile-Source-JDK" value="${javac.version}" />
+                <attribute name="X-Compile-Target-JDK" value="${javac.version}" />
+            </manifest>
+        </war>
+    </target>
+
+    <target name="warUpToDate">
+        <uptodate property="war.uptodate" targetfile="../i2psnark.war" >
+            <srcfiles dir= "." includes="build/obj/org/klomp/snark/web/*.class ../resources/**/* ../web.xml" />
+        </uptodate>
+    </target>
+
+    <target name="bundle" depends="compile" unless="no.bundle">
+        <mkdir dir="build/messages-src" />
+        <!-- Update the messages_*.po files.
+             We need to supply the bat file for windows, and then change the fail property to true -->
+        <exec executable="sh" osfamily="unix" failifexecutionfails="true" failonerror="${require.gettext}" >
+            <env key="JAVA_HOME" value="${java.home}" />
+            <arg value="./bundle-messages.sh" />
+        </exec>
+        <exec executable="sh" osfamily="mac" failifexecutionfails="true" failonerror="${require.gettext}" >
+            <arg value="./bundle-messages.sh" />
+        </exec>
+        <!-- multi-lang is optional -->
+        <exec executable="sh" osfamily="windows" failifexecutionfails="false" >
+            <arg value="./bundle-messages.sh" />
+        </exec>
+        <javac source="${javac.version}" target="${javac.version}" 
+               includeAntRuntime="false"
+               srcdir="build/messages-src" destdir="build/obj">
+            <compilerarg line="${javac.compilerargs}" />
+        </javac>
+    </target>
+
+    <target name="poupdate" depends="builddep, compile">
+        <!-- Update the messages_*.po files.  -->
+        <!-- set if unset -->
+        <property name="lg2" value="" />
+        <exec executable="sh" osfamily="unix" failifexecutionfails="true" failonerror="true" >
+            <env key="LG2" value="${lg2}" />
+            <arg value="./bundle-messages.sh" />
+            <arg value="-p" />
+        </exec>
+        <exec executable="sh" osfamily="mac" failifexecutionfails="true" failonerror="true" >
+            <env key="LG2" value="${lg2}" />
+            <arg value="./bundle-messages.sh" />
+            <arg value="-p" />
+        </exec>
+        <exec executable="sh" osfamily="windows" failifexecutionfails="true" failonerror="true" >
+            <env key="LG2" value="${lg2}" />
+            <arg value="./bundle-messages.sh" />
+            <arg value="-p" />
+        </exec>
+    </target>
+
+    <target name="standalone" depends="standalone_prep">
+        <zip destfile="i2psnark-standalone.zip">
+          <zipfileset dir="./dist/" prefix="i2psnark/" />
+        </zip>
+    </target>
+
+    <!-- make a fat jar for standalone -->
+    <target name="standalone_jar" depends="war">
+      <!-- set if unset -->
+      <property name="workspace.changes.tr" value="" />
+      <jar destfile="build/i2psnark-standalone.jar">
+        <fileset dir="build/obj" includes="**/standalone/*.class" />
+        <zipfileset src="build/i2psnark.jar" />
+        <zipfileset src="../../../core/java/build/i2p.jar" />
+      <!-- without this we get a warning about 'no JSP support' but that's it
+        <zipfileset src="../../jetty/jettylib/jasper-runtime.jar"  />
+       -->
+        <zipfileset src="../../jetty/jettylib/javax.servlet.jar" />
+        <zipfileset src="../../jetty/jettylib/jetty-continuation.jar" />
+        <zipfileset src="../../jetty/jettylib/jetty-deploy.jar" />
+        <zipfileset src="../../jetty/jettylib/jetty-http.jar" />
+        <zipfileset src="../../jetty/jettylib/jetty-i2p.jar" />
+        <zipfileset src="../../jetty/jettylib/jetty-io.jar" />
+        <zipfileset src="../../jetty/jettylib/jetty-security.jar"  />
+        <zipfileset src="../../jetty/jettylib/jetty-servlet.jar" />
+        <zipfileset src="../../jetty/jettylib/jetty-util.jar" />
+        <zipfileset src="../../jetty/jettylib/jetty-webapp.jar" />
+        <zipfileset src="../../jetty/jettylib/jetty-xml.jar" />
+        <zipfileset src="../../jetty/jettylib/org.mortbay.jetty.jar"  />
+        <zipfileset src="../../ministreaming/java/build/mstreaming.jar" />
+        <zipfileset src="../../streaming/java/build/streaming.jar" />
+        <zipfileset src="../../systray/java/build/systray.jar" />
+        <!-- Countries translations. The i2psnark translations are in the war but it's easier to put these here -->
+        <!-- 300KB just to translate "Brazil", but why not... -->
+      <!--
+        <fileset dir="../../routerconsole/java/build/obj" includes="net/i2p/router/countries/*.class" />
+       -->
+        <manifest>
+            <attribute name="Main-Class" value="org.klomp.snark.standalone.RunStandalone"/>
+            <attribute name="Implementation-Version" value="${full.version}" />
+            <attribute name="Built-By" value="${build.built-by}" />
+            <attribute name="Build-Date" value="${build.timestamp}" />
+            <attribute name="Base-Revision" value="${workspace.version}" />
+            <attribute name="Workspace-Changes" value="${workspace.changes.tr}" />
+            <!-- this is so Jetty will report its version correctly -->
+            <section name="org/eclipse/jetty/server/" >
+                <attribute name="Implementation-Vendor" value="Eclipse.org - Jetty" />
+                <attribute name="Implementation-Version" value="8.1.17.v20150415" />
+            </section>
+        </manifest>
+      </jar>
+    </target>
+
+    <!-- add css, image, and js files for standalone snark to the war -->
+    <target name="standalone_war" depends="war">
+        <mkdir dir="build/standalone-resources/.resources/themes/snark" />
+        <copy todir="build/standalone-resources/.resources/themes/snark" >
+            <fileset dir="../../../installer/resources/themes/snark/" />
+        </copy>
+
+        <replace dir="build/standalone-resources/.resources/themes/snark"
+            summary="true"
+            token="url(/themes/console/dark/images/"
+            value="url(/i2psnark/.resources/themes/snark/dark/images/" >
+            <include name="**/*.css" />
+        </replace>
+        <replace dir="build/standalone-resources/.resources/themes/snark"
+            summary="true"
+            token="url(../../console/light/images/"
+            value="url(/i2psnark/.resources/themes/snark/light/images/" >
+            <include name="**/*.css" />
+        </replace>
+        <replace dir="build/standalone-resources/.resources/themes/snark"
+            summary="true"
+            token="url(/themes/console/light/images/"
+            value="url(/i2psnark/.resources/themes/snark/light/images/" >
+            <include name="**/*.css" />
+        </replace>
+        <replace dir="build/standalone-resources/.resources/themes/snark"
+            summary="true"
+            token="url(/themes/console/images/transparent.gif"
+            value="url(/i2psnark/.resources/themes/snark/ubergine/images/transparent.gif" >
+            <include name="**/*.css" />
+        </replace>
+        <replace dir="build/standalone-resources/.resources/themes/snark"
+            summary="true"
+            token="url(/themes/console/images/info/"
+            value="url(/i2psnark/.resources/themes/snark/ubergine/images/" >
+            <include name="**/*.css" />
+        </replace>
+
+        <!-- Rather than pulling in all the console theme images, let's just specify the ones we need -->
+        <copy file="../../../installer/resources/themes/console/images/transparent.gif"
+              todir="build/standalone-resources/.resources/themes/snark/ubergine/images" />
+        <copy file="../../../installer/resources/themes/console/dark/images/header.png"
+              todir="build/standalone-resources/.resources/themes/snark/dark/images" />
+        <copy file="../../../installer/resources/themes/console/light/images/header.png"
+              todir="build/standalone-resources/.resources/themes/snark/light/images" />
+        <copy file="../../../installer/resources/themes/console/dark/images/camotile2.png"
+              todir="build/standalone-resources/.resources/themes/snark/dark/images" />
+        <copy file="../../../installer/resources/themes/console/images/info/errortriangle.png"
+              todir="build/standalone-resources/.resources/themes/snark/ubergine/images" />
+
+        <mkdir dir="build/standalone-resources/.resources/js" />
+        <copy file="../../routerconsole/jsp/js/ajax.js" todir="build/standalone-resources/.resources/js" />
+
+        <zip destfile="../i2psnark.war" update="true" duplicate="preserve" >
+            <fileset dir="build/standalone-resources" />
+        </zip>
+    </target>
+
+    <target name="standalone_prep" depends="standalone_jar, standalone_war">
+        <delete dir="./dist" />
+        <mkdir dir="./dist" />
+        <copy file="../launch-i2psnark" todir="./dist/" />
+        <copy file="../launch-i2psnark.bat" todir="./dist/" />
+        <mkdir dir="./dist/contexts" />
+        <copy file="../standalone-context.xml" tofile="./dist/contexts/context.xml" />
+        <mkdir dir="./dist/docroot" />
+        <copy file="../standalone-index.html" tofile="./dist/docroot/index.html" />
+        <mkdir dir="./dist/webapps" />
+        <copy file="../i2psnark.war" tofile="./dist/webapps/i2psnark.war" />
+        <copy file="../jetty-i2psnark.xml" tofile="./dist/jetty-i2psnark.xml" />
+        <copy file="../i2psnark-appctx.config" tofile="./dist/i2psnark-appctx.config" />
+        <copy file="./build/i2psnark-standalone.jar" tofile="./dist/i2psnark.jar" />
+        <copy file="../readme-standalone.txt" tofile="./dist/readme.txt" />
+        <!-- temp so announces work -->
+        <copy file="../../../installer/resources/hosts.txt" tofile="./dist/hosts.txt" />
+        <copy todir="./dist/licenses" >
+            <fileset dir="../../../licenses" includes="LICENSE-GPLv2.txt, ABOUT-Jetty.html" />
+        </copy>
+        <mkdir dir="./dist/logs" />
+    </target>
+
+    <target name="clean">
+        <delete dir="./build" />
+        <delete file="../i2psnark.war" />
+        <delete file="./i2psnark-standalone.zip" />
+        <delete dir="./dist" />
+    </target>
+    <target name="cleandep" depends="clean">
+    </target>
+    <target name="distclean" depends="clean">
+    </target>
+</project>

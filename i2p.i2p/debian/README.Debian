@@ -1,0 +1,32 @@
+QUICK START:
+
+$ i2prouter start
+
+(do NOT use sudo or run it as root!)
+
+Then your web browser will start and show http://localhost:7657 (or you may run it manually).
+
+You can configure i2p (run on boot, memory limit, using apparmor) via debconf:
+
+# dpkg-configure -plow i2p
+
+See also: https://geti2p.net/en/download/debian
+
+-----
+
+There are a few changes in this package from upstream.
+
+- eepget and i2prouter are installed to /usr/bin.
+
+- runplain.sh is installed as /usr/bin/i2prouter-nowrapper
+
+- If I2P is run using the i2prouter or i2prouter-nowrapper scripts, the
+  wrapper.log is in /tmp and the other logs are in ~/.i2p/logs.
+
+- If I2P is run with the initscript in /etc/init.d/i2p, all logs are written
+  to /var/log/i2p with the timestamps in UTC
+
+- The config file for the wrapper can be found at /etc/i2p/wrapper.config
+
+
+To use I2P with the wrapper (recommended), the package i2p must be installed.

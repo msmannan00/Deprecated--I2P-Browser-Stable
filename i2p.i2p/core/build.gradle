@@ -1,0 +1,88 @@
+plugins {
+    id 'java-library'
+    id 'scala'
+    id 'me.champeau.gradle.jmh' version '0.4.8'
+}
+
+archivesBaseName = 'i2p'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'java/src'
+            exclude 'gnu/getopt'
+            exclude 'gnu/gettext'
+        }
+        resources {
+            srcDir 'java/src'
+            include 'gnu/getopt/*.properties'
+        }
+    }
+    test {
+        java {
+            srcDir 'java/test/junit'
+            exclude 'net/i2p/AllCoreTests.java'
+            exclude 'net/i2p/data/DataTestSuite.java'
+            exclude 'net/i2p/data/i2cp/I2CPTestSuite.java'
+            exclude {
+                it.name.endsWith('IT.java')
+            }
+        }
+        resources {
+            srcDir 'java/test/resources'
+        }
+    }
+    jmh {
+        java {
+            srcDir 'java/bench'
+        }
+    }
+}
+
+dependencies {
+    implementation 'gnu.getopt:java-getopt:1.0.13'
+    implementation 'org.gnu.gettext:libintl:0.18.3'
+
+    if (project.hasProperty("with.jbigi")) {
+        runtimeOnly project(path: ':installer', configuration: 'jbigi')
+    }
+
+    testCompile "org.scala-lang:scala-library:2.12.4"
+    testCompile 'org.scalatest:scalatest_2.12:3.0.4'
+}
+
+if (System.getenv("TARGET_JAVA_HOME") == null && JavaVersion.current() != JavaVersion.VERSION_1_7) {
+    sourceSets {
+        test {
+            scala {
+                srcDir 'java/test/scalatest'
+            }
+        }
+    }
+    task scalaTest(dependsOn: ['testClasses'], type: JavaExec) {
+        main = 'org.scalatest.tools.Runner'
+        args = ['-R', 'build/classes/scala/test', '-o']
+        classpath = sourceSets.test.runtimeClasspath
+    }
+    test.dependsOn scalaTest
+}
+
+jar {
+    manifest {
+        attributes 'Specification-Title': 'I2P Core API'
+        attributes 'Implementation-Title': 'I2P Java Core API'
+        attributes 'Main-Class': 'net.i2p.util.CommandLine'
+    }
+}
+
+configurations {
+    tests
+}
+task testJar(type: Jar) {
+    baseName = 'i2p-test'
+    dependsOn classes
+    from sourceSets.test.output
+}
+artifacts {
+    tests testJar
+}

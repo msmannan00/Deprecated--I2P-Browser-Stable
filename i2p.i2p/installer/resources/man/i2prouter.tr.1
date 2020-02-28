@@ -1,0 +1,60 @@
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH I2PROUTER 1 "26 Ocak 2017" "" I2P
+
+.SH AD
+i2prouter \- I2P yönelticisini başlatır ve durdurur
+
+.SH ÖZET
+\fBi2prouter\fP
+{\fIconsole\fP|\fIstart\fP|\fIstop\fP|\fIgraceful\fP|\fIrestart\fP|\fIcondrestart\fP|\fIstatus\fP|\fIdump\fP|\fIinstall\fP|\fIremove\fP}
+.br
+
+.SH AÇIKLAMA
+I2P hizmerini denetler.
+
+.IP \fBconsole\fP
+I2P yönelticisini geçerli kullanıcı altında bir konsol uygulaması olarak
+çalıştırır.
+
+.IP \fBstart\fP
+I2P hizmetini başlatır.
+
+.IP \fBstop\fP
+I2P hizmetini durdurur.
+
+.IP \fBrestart\fP
+I2P hizmetini durdurur ve yeniden başlatır.
+
+.IP \fBcondrestart\fP
+Yalnız zaten çalışıyorsa I2P hizmetini yeniden başlatır.
+
+.IP \fBgraceful\fP
+I2P yönelticiyi uygun şekilde durdurur (11 dakika kadar sürebilir)
+
+.IP \fBinstall\fP
+Sistem açılırken I2P yönelticiyi otomatik yükleyecek başlatma betiğini
+kurar.
+
+.IP \fBremove\fP
+\fBinstall\fP ile kurulmuş başlatma betiğini kaldırır
+
+.IP \fBstatus\fP
+I2P hizmetinin çalışıp çalışmadığını yazar.
+
+.IP \fBdump\fP
+Geçerli işlemi \fBwrapper.log\fP içine kaydeder.
+
+.SH "HATA BİLDİRİMİ"
+Lütfen
+.UR https://trac.i2p2.de/
+I2P trac sayfasından
+.UE .
+bir destek
+çağrısı gönderin
+
+.SH "DİĞER BİLGİLER"
+\fBi2prouter\-nowrapper\fP(1)

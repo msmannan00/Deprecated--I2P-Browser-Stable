@@ -1,0 +1,59 @@
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH I2PROUTER 1 "26 января 2017" "" I2P
+
+.SH ИМЯ
+i2prouter \- запускает и останавливает роутер I2P
+
+.SH СИНОПСИС
+\fBi2prouter\fP
+{\fIconsole\fP|\fIstart\fP|\fIstop\fP|\fIgraceful\fP|\fIrestart\fP|\fIcondrestart\fP|\fIstatus\fP|\fIdump\fP|\fIinstall\fP|\fIremove\fP}
+.br
+
+.SH ОПИСАНИЕ
+Контроль службы I2P
+
+.IP \fBconsole\fP
+Запускает I2P как консольное приложение от текущего пользователя.
+
+.IP \fBstart\fP
+Запускает сервис I2P
+
+.IP \fBstop\fP
+Останавливает сервис I2P
+
+.IP \fBrestart\fP
+Останавливает сервис I2P и затем запускет его.
+
+.IP \fBcondrestart\fP
+Перезапускает сервис I2P, только если он уже запущен.
+
+.IP \fBgraceful\fP
+Постепенно остановить сервис I2P (может занять до 11 минут)
+
+.IP \fBinstall\fP
+Установите initscript, чтобы I2P запускался автоматически при загрузке
+системы.
+
+.IP \fBremove\fP
+Удалить скрипт инициализации, который был установлен с помощью \fBinstall\fP
+
+.IP \fBstatus\fP
+Сообщает, запущен ли I2P сервис.
+
+.IP \fBdump\fP
+Сохраняет текщие потоки в \fBwrapper.log\fP.
+
+.SH "СООБЩИТЬ ОБ ОШИБКАХ"
+Пожалуйста, заведите тикет на
+.UR https://trac.i2p2.de/
+странице трекера
+I2P
+.UE .
+.
+
+.SH "СМ. ТАКЖЕ"
+\fBi2prouter\-nowrapper\fP(1)

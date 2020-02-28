@@ -1,0 +1,83 @@
+<?xml version="1.0"  encoding="ISO-8859-1"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+
+<!--
+Configure a custom context for the eepsite.
+
+This context contains only a ServletContextHandler with a default servlet
+to serve static html files and images.
+-->
+
+<Configure class="org.eclipse.jetty.servlet.ServletContextHandler">
+  <Set name="contextPath">/</Set>
+  <Set name="resourceBase">./eepsite/docroot/</Set>
+  <Call name="setInitParameter">
+    <Arg>org.eclipse.jetty.servlet.Default.cacheControl</Arg>
+    <Arg>max-age=3600,public</Arg>
+  </Call>
+  <!-- change to false to disallow directory listings -->
+  <Call name="setInitParameter">
+    <Arg>org.eclipse.jetty.servlet.Default.dirAllowed</Arg>
+    <Arg>true</Arg>
+  </Call>
+  <Call name="setMimeTypes">
+    <Arg>
+      <New class="org.eclipse.jetty.http.MimeTypes">
+        <Call name="addMimeMapping">
+          <Arg>sud</Arg>
+          <Arg>application/zip</Arg>
+        </Call>
+        <Call name="addMimeMapping">
+          <Arg>su2</Arg>
+          <Arg>application/zip</Arg>
+        </Call>
+        <Call name="addMimeMapping">
+          <Arg>xpi2p</Arg>
+          <Arg>application/zip</Arg>
+        </Call>
+      </New>
+    </Arg>
+  </Call>
+  <Call name="addServlet">
+    <Arg>net.i2p.servlet.I2PDefaultServlet</Arg>
+    <Arg>/</Arg>
+  </Call>
+  <Call name="addFilter">
+    <!-- Add a filter to gzip on-the fly, since if we don't do it, I2P will.
+      -  This lowers the resource usage in the Java process on the client side,
+      -  by pushing the decompression out of Java and into the browser.
+      -  For all the reasons noted in the GzipFilter javadocs, this is normally
+      -  a bad idea for static content, but this is I2P.
+      -  See I2PTunnelHTTPServer for the I2P compressor.
+      -->
+    <Arg>
+      <New class="org.eclipse.jetty.servlet.FilterHolder" >
+        <Arg>
+          <New class="org.eclipse.jetty.servlets.GzipFilter" />
+        </Arg>
+        <Call name="setInitParameter">
+          <!-- minimum in Java is 1300 -->
+          <Arg>minGzipSize</Arg>
+          <Arg>512</Arg>
+        </Call>
+        <Call name="setInitParameter">
+          <!-- In Java we have a blacklist. This covers the most common cases. -->
+          <Arg>mimeTypes</Arg>
+          <Arg>application/pdf,application/x-javascript,application/xhtml+xml,application/xml,image/svg+xml,text/css,text/html,text/plain</Arg>
+        </Call>
+      </New>
+    </Arg>
+    <Arg>/*</Arg>
+    <Arg>
+      <!-- just guessing here -->
+      <Call class="java.util.EnumSet" name="of" >
+        <Arg>
+          <Call class="javax.servlet.DispatcherType" name="valueOf" >
+            <Arg>REQUEST</Arg>
+          </Call>
+        </Arg>
+      </Call>
+    </Arg>
+  </Call>
+</Configure>
+

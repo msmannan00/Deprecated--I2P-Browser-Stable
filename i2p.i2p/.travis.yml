@@ -1,0 +1,64 @@
+language: java
+dist: trusty
+
+jdk:
+  - oraclejdk11
+  - oraclejdk9
+  - openjdk12
+  - openjdk11
+  - openjdk10
+  - openjdk9
+
+matrix:
+  include:
+    - jdk: oraclejdk8
+      addons:
+        sonarcloud:
+          organization: "i2p"
+      before_install:
+        - export JAVA7_HOME=$(jdk_switcher home openjdk7)
+        - sed -i "1iplugins {\n    id 'org.sonarqube' version '2.6.1'\n}\n" build.gradle
+    - jdk: openjdk8
+      before_install:
+        - export JAVA7_HOME=$(jdk_switcher home openjdk7)
+    - jdk: openjdk7
+      sudo: required
+      before_install: # Work around missing crypto in openjdk7
+        - export JAVA7_HOME=$(jdk_switcher home openjdk7)
+        - sudo wget "https://bouncycastle.org/download/bcprov-ext-jdk15on-158.jar" -O "${JAVA_HOME}/jre/lib/ext/bcprov-ext-jdk15on-158.jar"
+        - sudo perl -pi.bak -e 's/^(security\.provider\.)([0-9]+)/$1.($2+1)/ge' /etc/java-7-openjdk/security/java.security
+        - echo "security.provider.1=org.bouncycastle.jce.provider.BouncyCastleProvider" | sudo tee -a /etc/java-7-openjdk/security/java.security
+      install:
+        - export TARGET_JAVA_HOME=$JAVA_HOME
+        - jdk_switcher use oraclejdk8
+        - ./gradlew assemble
+  allow_failures:
+    - jdk: openjdk12
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.sonar/cache/
+    - .gradle
+
+script:
+  - |
+    if [ "$TRAVIS_JDK_VERSION" == "oraclejdk8" ]; then
+      ./gradlew sonarqube codeCoverageReport
+    else
+      ./gradlew check codeCoverageReport
+    fi
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+notifications:
+  irc:
+    channels:
+      - "chat.freenode.net#i2p-dev"
+    on_success: change
+    on_failure: always
